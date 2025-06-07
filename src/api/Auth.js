@@ -1,6 +1,27 @@
-import { signInWithPopup } from 'firebase/auth';
+import { signOut, signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../firebase.js';
+import { toast } from 'react-toastify';
 
+export const regis = async (username, mail, password, confirmPassword) => {
+    try {
+        const res = await fetch('/api/regis', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, mail, password, confirmPassword }),
+        });
+
+        const data = await res.json();
+        if (data) {
+            return data
+        }
+        else {
+            throw new Error(data.message)
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export const maliLogin = async (mail, password, remember) => {
     const res = await fetch('/api/login', {
@@ -65,5 +86,18 @@ export const GoogleLogin = async () => {
 
     } catch (error) {
         console.error("❌ Google Login Error:", error);
+    }
+};
+
+
+export const handleLogout = async () => {
+    try {
+        await signOut(auth);
+        localStorage.removeItem('user');
+        sessionStorage.removeItem('user');
+        toast.success('ออกจากระบบเรียบร้อยครับ :)');
+        window.location.href = '/';
+    } catch (error) {
+        console.error("❌ Logout failed:", error);
     }
 };

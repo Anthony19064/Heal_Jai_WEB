@@ -13,6 +13,7 @@ import { FaRegUser } from "react-icons/fa";
 import { LuNotebook } from "react-icons/lu";
 import { LuClipboardList } from "react-icons/lu";
 
+import { getOwnerAccount } from '../api/Account.js';
 
 
 
@@ -22,12 +23,7 @@ export default function MyProfile(){
     // Check login
     const [userinfo, setUserinfo] = useState(null);
     useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || 'null');
-    if (user) {
-        setUserinfo(user);
-    } else {
-        console.log("User is not logged in");
-    }
+        getOwnerAccount().then(setUserinfo)
     }, []);
 
     //----------------------

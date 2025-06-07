@@ -6,7 +6,8 @@ import { FaRegCommentDots } from "react-icons/fa6";
 import { BsArrowRepeat } from "react-icons/bs";
 
 import { Link } from 'react-router-dom';
-import { getAccount, getCountComment, getComment, addComment } from '../api/cardPost';
+import { getCountComment, getComment, addComment } from '../api/Post';
+import { getAccount } from '../api/Account';
 import '../css/CardPost.css';
 
 export default function CardPost({ postObj }) {

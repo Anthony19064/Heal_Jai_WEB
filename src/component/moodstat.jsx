@@ -4,9 +4,10 @@ import sad from '../assets/icons/Animation - 1747638873056.json'
 import happy from '../assets/icons/Animation - 1747639008997.json'
 import normal from '../assets/icons/Animation - 1747638950145.json'
 import angry from '../assets/icons/Animation - 1747638918123.json'
+
 import { TbCalendarMonth } from "react-icons/tb";
 import { useEffect, useState, useMemo } from "react";
-import { getLatestMood, getDayStack } from "../api/moodStat";
+import { getLatestMood, getDayStack } from "../api/mood";
 
 export default function MoodStat({ onChangePage, userId, refreshState }) {
     const [latestMood, setLatestMood] = useState(null);

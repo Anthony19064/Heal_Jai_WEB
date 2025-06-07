@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 import { useNavigate } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
-import { regis } from "../api/regis";
+import { regis } from "../api/Auth";
 
 
 export default function Regis() {

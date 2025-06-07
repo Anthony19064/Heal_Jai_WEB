@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getMypost } from "../api/myPost";
+import { getMypost } from "../api/Post";
 
 import '../css/MyPost.css';
 import CardPost from "./CardPost";

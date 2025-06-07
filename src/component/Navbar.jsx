@@ -5,38 +5,19 @@ import { CiHeart } from "react-icons/ci";
 import notification from '../assets/icons/notification.svg';
 import { Link } from 'react-router-dom';
 
-import { signOut } from 'firebase/auth';
-import { auth } from '../firebase.js';
-
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+
+import { getOwnerAccount } from '../api/Account.js';
+import { handleLogout } from '../api/Auth.js';
 
 export default function Navbar() {
-    const navigate = useNavigate();
-
     const [userinfo, setUserinfo] = useState(null);
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || 'null');
-        if (user) {
-            setUserinfo(user);
-        } else {
-            setUserinfo(null);
-        }
+        getOwnerAccount().then(setUserinfo)
     }, []);
 
 
-    const handleLogout = async () => {
-        try {
-            await signOut(auth);
-            localStorage.removeItem('user');
-            sessionStorage.removeItem('user');
-            toast.success('ออกจากระบบเรียบร้อยครับ :)');
-            window.location.href = '/';
-        } catch (error) {
-            console.error("❌ Logout failed:", error);
-        }
-    };
+
 
 
     const [NavPopup, setNavPopup] = useState(false);

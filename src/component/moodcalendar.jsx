@@ -1,10 +1,3 @@
-import Lottie from "lottie-react";
-import stress from '../assets/icons/Animation - 1747638906142.json'
-import sad from '../assets/icons/Animation - 1747638873056.json'
-import happy from '../assets/icons/Animation - 1747639008997.json'
-import normal from '../assets/icons/Animation - 1747638950145.json'
-import angry from '../assets/icons/Animation - 1747638918123.json'
-
 import '../css/moodcalendar.css';
 
 import { VscGraphLine } from "react-icons/vsc";
@@ -13,10 +6,7 @@ import { FaArrowCircleLeft } from "react-icons/fa";
 import { useState } from "react";
 import { useEffect } from "react";
 
-import { generateCalendar } from "../api/moodcalendar";
-import { getMymood } from "../api/moodcalendar";
-import { nextMonth } from "../api/moodcalendar";
-import { prevMonth } from "../api/moodcalendar";
+import { generateCalendar, getMymood, nextMonth, prevMonth} from "../api/mood";
 
 export default function MoodCalendar({ onChangePage, userId, refreshState }) {
 

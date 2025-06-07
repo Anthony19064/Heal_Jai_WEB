@@ -10,8 +10,8 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
-import { maliLogin } from "../api/login.js";
-import { GoogleLogin } from "../api/login.js";
+import { maliLogin } from "../api/Auth.js";
+import { GoogleLogin } from "../api/Auth.js";
 
 
 export default function Login() {
