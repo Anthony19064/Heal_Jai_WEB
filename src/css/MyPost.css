@@ -1,0 +1,32 @@
+.PostZone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.postSection{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.topicSection{
+    text-align: center;
+}
+
+.topic{
+    font-size: 35px;
+}
+
+.infoSection{
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

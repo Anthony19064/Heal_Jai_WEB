@@ -1,0 +1,122 @@
+.ProfileZone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileInfoSection{
+    width: 70%;
+    height: auto;
+    margin-top: 80px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    justify-content: center;
+    position: relative;
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    border: 6px solid var(--main-color);
+    border-radius: 40px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.7s ease-in-out;
+}
+
+.editButton{
+    padding: 15px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: auto;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    border: none;
+    font-size: 13px;
+    font-family: "Mali", cursive;
+    font-weight: 600;
+    font-style: normal;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+    gap: 5px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.7s ease-in-out;
+}
+
+.editButton:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: none;
+}
+
+
+.profileImg{
+    width: 204px;
+    height: 204px;
+    border-radius: 50%;
+    border: 7px solid var(--main-color);
+    object-fit: cover;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.7s ease-in-out;
+}
+
+.profileUsername{
+    margin: 0px;
+    font-size: 40px;
+    letter-spacing: 2px;
+    text-decoration: underline;
+    text-underline-offset: 15px;
+    color:  var(--main-color);
+    margin-top: 30px;
+    transition: color 0.7s ease-in-out;
+}
+
+.buttonSection{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.FeatureButton{
+    width: 120px;
+    height: 120px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.7s ease-in-out;
+}
+
+.FeatureButton:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: none;
+}
+
+.title{
+    margin: 0px;
+    color: white;
+    font-family: "Mali", cursive;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 14px;
+}

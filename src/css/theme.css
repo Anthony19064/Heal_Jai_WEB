@@ -1,0 +1,58 @@
+:root {
+  --main-color: #464646;
+  --text-color: #464646;
+  --secondtext-color: #464646;
+  --texthealjai-color: #464646;
+  --circleleft-color: #4A4A4A;
+  --circleright-color: #A9A9A9;
+  --secondleft-color: #A4A099;
+  --secondright-color: #D4D0C9;
+}
+
+/* Red theme */
+[data-theme="Red"] {
+  --main-color: #FD7D7E;
+  --text-color: #FD7D7E;
+  --secondtext-color: #ff9d59;
+  --texthealjai-color: #FB6162;
+  --circleleft-color: #FE6D6F;
+  --circleright-color: #FFA66E;
+  --secondleft-color: #FEB2AC;
+  --secondright-color: #FFE5C5;
+}
+
+/* Sky theme */
+[data-theme="Sky"] {
+  --main-color: #628EFD;
+  --text-color: #628EFD;
+  --secondtext-color: #628EFD;
+  --texthealjai-color: #628EFD;
+  --circleleft-color: #86A8FF;
+  --circleright-color: #83E7FD;
+  --secondleft-color: #A4BEFF;
+  --secondright-color: #D2F3F6;
+}
+
+/* Purple theme */
+[data-theme="Purple"] {
+  --main-color: #835DC8;
+  --text-color: #835DC8;
+  --secondtext-color: #835DC8;
+  --texthealjai-color: #835DC8;
+  --circleleft-color: #8D5FE6;
+  --circleright-color: #D0BFFF;
+  --secondleft-color: #C4A6FF;
+  --secondright-color: #E7DAF4;
+}
+
+/* Green theme */
+[data-theme="Green"] {
+  --main-color: #76BC43;
+  --text-color: #76BC43;
+  --secondtext-color: #76BC43;
+  --texthealjai-color: #277C43;
+  --circleleft-color: #277C43;
+  --circleright-color: #76BC43;
+  --secondleft-color: #93B996;
+  --secondright-color: #DBF3BF;
+}

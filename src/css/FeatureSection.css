@@ -1,0 +1,244 @@
+.FeatureZone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerFeature {
+    font-family: "Mali", cursive;
+    font-weight: 700;
+    letter-spacing: 10px;
+    font-size: 50px;
+    color: #464646;
+    transition: color 0.7s ease-in-out;
+    margin: 300px 0px 100px 0px;
+}
+
+.commuSection {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 100px;
+    min-height: 500px;
+}
+
+.carouselSection {
+    width: 80%;
+}
+
+.p-carousel .p-carousel-prev,
+.p-carousel .p-carousel-next {
+    top: 40%;
+    /* ปรับให้อยู่กลางๆ แนวตั้ง */
+    z-index: 20;
+    background-color: white;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    color: black;
+}
+
+.featureSliderCard {
+    width: 400px;
+    height: 100%;
+    min-height: 420px;
+    border: 3px solid #DDDDDD;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.featureSliderCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8px;
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    z-index: 0;
+}
+
+.commu::before {
+    background-color: #76BC43;
+}
+
+.chat::before {
+    background-color: #FD7D7E;
+}
+
+.dairy::before {
+    background-color: #628EFD;
+}
+
+.featureSliderCard:hover::before {
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.featureSliderCard:hover .featureSliderTitle,
+.featureSliderCard:hover .commuInfo {
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.featureSliderCard:hover .featureSliderButton {
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.featureSliderCard:hover {
+    transform: rotate(-5deg);
+    transition: all 0.3s ease-in-out;
+    border-color: white;
+}
+
+.featureSliderCard:hover .commuButton {
+    color: #76BC43;
+}
+
+.featureSliderCard:hover .chatButton {
+    color: #FD7D7E;
+}
+
+.featureSliderCard:hover .dairyButton {
+    color: #628EFD;
+}
+
+
+.imageCircle {
+    position: relative;
+    margin: 20px 0px 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 1;
+}
+
+
+.commuImage {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    z-index: 1;
+}
+
+.featureSliderTitle {
+    position: relative;
+    font-size: 35px;
+    letter-spacing: 2px;
+    margin: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.commuInfo {
+    position: relative;
+    font-size: 17px;
+    margin: 0;
+    margin-top: 35px;
+    line-height: 200%;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.featureSliderButton {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 125px;
+    height: 45px;
+    border-radius: 20px;
+    border: 2px solid white;
+    color: white;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease-in-out;
+    font-size: 15px;
+    font-family: "Mali", cursive;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.featureSliderButton:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.commuText p {
+    text-align: center;
+    font-size: 40px;
+    line-height: 250%;
+    letter-spacing: 5px;
+    margin: 0;
+    margin-top: 50px;
+}
+
+
+
+.commuTitle {
+    color: #76BC43;
+}
+
+.chatTitle {
+    color: #FD7D7E;
+}
+
+.dairyTitle {
+    color: #628EFD;
+}
+
+.commuButton {
+    background-color: #76BC43;
+}
+
+.chatButton {
+    background-color: #FD7D7E;
+}
+
+.dairyButton {
+    background-color: #628EFD;
+}
+
+
+.p-carousel-indicators {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 20px;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.p-carousel-indicator {
+    background-color: #ccc !important;
+    width: 12px;
+    height: 12px;
+    margin: 0 4px;
+    border-radius: 50%;
+}
+
+.p-carousel-indicator.p-highlight {
+    background-color: #464646 !important;
+    /* สี active */
+}

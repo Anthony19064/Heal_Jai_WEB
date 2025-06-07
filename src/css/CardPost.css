@@ -1,0 +1,215 @@
+.cardMypost {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 55px;
+    background-color: white;
+    padding: 30px 40px 45px 40px;
+    border-radius: 20px;
+    border: 5px solid var(--main-color);
+    width: 1000px;
+}
+
+.headCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.OwnerPost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0px 8px 0px;
+    gap: 30px;
+    border-radius: 15px;
+}
+
+.OwnerImg {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--main-color);
+}
+
+.OwnerName {
+    font-size: 35px;
+    margin: 0px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.moreIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: transform 0.3s ease-in-out;
+    margin: 10px 25px 0px 0px;
+}
+
+.moreIcon:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.contentCard {
+    margin: 30px 0px 0px 0px;
+    text-align: left;
+}
+
+.contentCard p {
+    font-weight: 500;
+    font-size: 25px;
+    color: #464646;
+}
+
+.bottomCard {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+    margin: 30px 0px 0px 0px;
+}
+
+.ButtonPost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    border: 2px solid #DDDDDD;
+    border-radius: 30px;
+    transition: transform 0.3s ease-in-out;
+    height: 50px;
+    width: 100px;
+}
+
+.ButtonPost:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: none;
+}
+
+.ButtonPost p {
+    font-size: 15px;
+    margin: 0px;
+}
+
+.bottomLine {
+    margin-top: 30px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    opacity: 50%;
+}
+
+.commentPost {
+    margin-top: 25px;
+}
+
+.inputComment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.inputComment input {
+    width: 90%;
+    height: 45px;
+    padding-left: 20px;
+    border: 2px solid var(--secondright-color);
+    border-radius: 30px;
+    font-size: 15px;
+    outline: none;
+    font-family: "Mali", cursive;
+    font-weight: 500;
+    font-style: normal;
+    color: #464646;
+}
+
+.inputComment input:focus{
+    border-color: var(--main-color);
+}
+
+.inputComment button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    height: 51px;
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: "Mali", cursive;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 2px;
+}
+
+.commentCard {
+    margin-top: 25px;
+    background-color: var(--secondright-color);
+    padding: 10px 20px 20px 20px;
+    border-radius: 20px;
+}
+
+.ownerCommentSection {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    width: fit-content;
+}
+
+.ownerCommentSection img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--main-color);
+    object-fit: cover;
+}
+
+.ownerCommentSection p {
+    margin: 0;
+    cursor: pointer;
+    font-size: 22px;
+    color: var(--main-color);
+}
+
+.commentinfo{
+    color: #464646;
+    margin: 10px 0px 0px 0px;
+    font-weight: 500;
+}
+
+.likebutton {
+    border-color: #FD7D7E;
+}
+
+.likebutton p {
+    color: #FD7D7E;
+}
+
+.commentbutton {
+    border-color: #FFAC59;
+}
+
+.commentbutton p {
+    color: #FFAC59;
+}
+
+
+.repostbutton {
+    border-color: #7F71FF;
+}
+
+.repostbutton p {
+    color: #7F71FF;
+}

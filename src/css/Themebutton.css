@@ -1,0 +1,91 @@
+.ButtonSection{
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.openButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 65px;
+    border: 3px solid #DDDDDD;
+    border-radius: 50%;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    background-color: white;
+}
+
+.openButton:hover{
+    cursor: pointer;
+    transform: scale(1.1) rotate(20deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.imgIcon{
+    width: 45px;
+    height: 45px;
+}
+
+
+
+.popupButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    z-index: 9999;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: slideUp 0.4s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.ButtonChange{
+    width: 60px;
+    height: 60px;
+    border: 5px solid white;
+    border-radius: 50%;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(10deg);
+}
+
+.ButtonChange:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.redTheme{
+   background: linear-gradient(to right, #FE6D6F, #FFA66E);
+}
+
+.skyTheme{
+    background: linear-gradient(to right, #A4BEFF, #B1EAF0);
+}
+
+.purpleTheme{
+    background: linear-gradient(to right, #C4A6FF, #E7DAF4);
+}
+
+.greenTheme{
+    background: linear-gradient(to right, #76BC43, #BAD996);
+}

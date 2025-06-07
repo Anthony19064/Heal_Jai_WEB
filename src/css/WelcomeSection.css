@@ -1,0 +1,126 @@
+.WelcomeZone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section{
+    width: 70%;
+    height: 560px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 140px;
+}
+
+.imgbg{
+    width: 1450px;
+    height: 900px;
+    object-fit: cover;
+    border-radius: 59px;
+    border: 7px solid white;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.textcontent{
+    margin: 0;
+    margin-top: 30px;
+    padding: 0;
+    text-align: left;
+    font-size: 36px;
+    font-family: "Mali", cursive;
+    font-weight: 700;
+    line-height: 2;
+    letter-spacing: 2px;
+    font-style: normal;
+    color:white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.healjai{
+    text-shadow: none;
+    letter-spacing: 2px;
+    color: var(--texthealjai-color);
+    transition: color 0.7s ease-in-out;
+}
+
+.card{
+    width: 480px;
+    height: 560px;
+    background-color: white;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 6px solid var(--main-color);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.7s ease-in-out;
+}
+
+.cardimg{
+    width: 330px;
+    height: 330px;
+    animation: spin infinite 80s linear;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+.cardtext{
+    margin: 0px;
+    margin-top: 20px;
+    padding: 0px;
+    font-family: "Mali", cursive;
+    font-weight: 700;
+    line-height: 3;
+    color: #464646;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.rightcontent{
+    display: block ;
+    justify-content: center;
+    align-items: center;
+}
+
+.circleRight{
+    width: 458px;
+    height: 458px;
+    background-color: var(--circleright-color);
+    opacity: 50%;
+    border-radius: 50%;
+    position: absolute;
+    top: -110px;
+    right: -60px;
+    z-index: -1;
+    filter: blur(5px);  
+    transition: background-color 0.7s ease-in-out;
+}
+
+.circleLeft{
+    width: 458px;
+    height: 458px;
+    background-color: var(--circleleft-color);
+    opacity: 50%;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: -70px;
+    z-index: -1;
+    filter: blur(5px);
+    transition: background-color 0.7s ease-in-out;
+}

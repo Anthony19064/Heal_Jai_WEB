@@ -1,0 +1,22 @@
+.allpostZone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.creatPostSection{
+    margin-top: 100px;
+    width: 700px;
+    height: 400px;
+    background-color: white;
+    border: 3px solid #DDDDDD;
+    border-radius: 30px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+.allpostSection{
+    margin-top: 200px;
+}
+

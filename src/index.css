@@ -1,0 +1,26 @@
+body{
+  background-color: #FFF6E9;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+
+
+.custom-toast{
+    width: 400px !important;   
+    min-height: 80px;           
+    font-size: 18px;           
+    padding: 16px 24px;
+    border-radius: 12px;
+    text-align: center;
+    font-family: "Mali", cursive;
+    font-weight: 600;
+    font-style: normal;
+    color: #464646;
+}
+
+
+
+p{
+  cursor: default;
+}

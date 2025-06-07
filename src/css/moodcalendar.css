@@ -1,0 +1,148 @@
+.topcalendarSection{
+    position: relative;
+    min-width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.monthCalendar{
+    font-size: 35px;
+    margin: 0;
+    margin-bottom: 5px;
+    color: var(--secondtext-color);
+    transition: color 0.7s ease-in-out;
+}
+
+.DateCalendar{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.DateCalendar p{
+    margin: 0;
+    color: var(--secondtext-color);
+    transition: color 0.7s ease-in-out;
+}
+
+
+.weekSection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.day{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3px solid transparent;
+}
+
+.notday{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    opacity: 0;
+    border-radius: 50%;
+    border: 3px solid transparent;
+}
+
+.day p{
+    margin: 0;
+    font-size: 15px;
+    color: var(--secondtext-color);
+    cursor: default;
+    transition: color 0.7s ease-in-out;
+}
+
+.iconarrowLeft:hover, .iconarrowRight:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.iconarrowLeft{
+    background-color: transparent;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    position: absolute;
+    left: 0;
+    margin-left: 40px;
+}
+
+.iconarrowRight{
+    background-color: transparent;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    position: absolute;
+    right: 0;
+    margin-right: 40px;
+}
+
+
+
+.today{
+    border: 3px solid var(--secondtext-color);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.7s ease-in-out;
+}
+
+.sadDay{
+    border: 3px solid white;
+    background-color: #5B97C2;
+    transition: none;
+}
+.sadDay p {
+    color: white;
+    transition: none;
+}
+
+.happyDay{
+    background-color: #F5C968;
+    border: 3px solid white;
+    transition: none;
+}
+.happyDay p {
+    color: white;
+    transition: none;
+}
+
+.normalDay{
+    background-color: #767676;
+    border: 3px solid white;
+    transition: none;
+}
+.normalDay p {
+    color: white;
+    transition: none;
+}
+
+.angryDay{
+    background-color: #F46C6C;
+    border: 3px solid white;
+    transition: none;
+}
+.angryDay p {
+    color: white;
+    transition: none;
+}
+
+.stressDay{
+    background-color: #967AF9;
+    border: 3px solid white;
+    transition: none;
+}
+.stressDay p {
+    color: white;
+    transition: none;
+}

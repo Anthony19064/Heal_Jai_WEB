@@ -1,0 +1,16 @@
+.regisForm{
+    width: 643px;
+    height: 728px;
+    background-color: white;
+    border-radius: 35px;
+    border: 5px solid #277C43;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.submitButton{
+    margin-top: 50px;
+}
