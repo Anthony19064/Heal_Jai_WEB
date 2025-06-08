@@ -12,6 +12,7 @@ import { getLatestMood, getDayStack } from "../api/mood";
 export default function MoodStat({ onChangePage, userId, refreshState }) {
     const [latestMood, setLatestMood] = useState(null);
     const [dayStack, setDayStack] = useState(null);
+    
     useEffect(() => {
         if (userId) {
             getLatestMood(userId, setLatestMood);

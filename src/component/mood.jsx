@@ -13,6 +13,7 @@ import MoodCalendar from './moodcalendar';
 
 import { toast } from 'react-toastify';
 import { addMood, updateDayStack } from '../api/mood';
+import { getIdAccount } from '../api/Account';
 
 export default function Mood() {
 
@@ -26,12 +27,7 @@ export default function Mood() {
 
     const [userId, setUserId] = useState(null);
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || 'null');
-        if (user) {
-            setUserId(user.uid);
-        } else {
-            console.log("User is not logged in");
-        }
+        getIdAccount().then(setUserId)
     });
 
     const today = new Date();

@@ -7,18 +7,14 @@ import { Link } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
 
-import { getOwnerAccount } from '../api/Account.js';
+import { getInfoAccount } from '../api/Account.js';
 import { handleLogout } from '../api/Auth.js';
 
 export default function Navbar() {
     const [userinfo, setUserinfo] = useState(null);
     useEffect(() => {
-        getOwnerAccount().then(setUserinfo)
+        getInfoAccount().then(setUserinfo)
     }, []);
-
-
-
-
 
     const [NavPopup, setNavPopup] = useState(false);
 
@@ -43,7 +39,7 @@ export default function Navbar() {
                         </div>
 
                         {userinfo ? (
-                            <img className="imguser" src={userinfo.photoURL} onClick={OpenPopup}></img>
+                            <img className="imguser" src={userinfo.img} onClick={OpenPopup}></img>
                         ) : (
                             <Link to={'/login'}>
                                 <img className="imguser" src={profile}></img>
@@ -55,7 +51,7 @@ export default function Navbar() {
 
                     {NavPopup && (
                         <div className="NavPopup" data-aos="fade-up" id="NavPopup">
-                            <Link to={`/profile/${userinfo ? userinfo.displayName : ''}`} className="Popupitem" style={{ textDecoration: 'none' }}>
+                            <Link to={`/profile/${userinfo ? userinfo.username : ''}`} className="Popupitem" style={{ textDecoration: 'none' }}>
                                 โปรไฟล์ของฉัน
                             </Link>
                             <Link to="/contractUs" className="Popupitem" style={{ textDecoration: 'none' }}>

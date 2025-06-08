@@ -2,6 +2,8 @@ import { signOut, signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../firebase.js';
 import { toast } from 'react-toastify';
 
+
+//ลงทะเบียนสมัครสมาชิก
 export const regis = async (username, mail, password, confirmPassword) => {
     try {
         const res = await fetch('/api/regis', {
@@ -23,6 +25,7 @@ export const regis = async (username, mail, password, confirmPassword) => {
     }
 }
 
+//ล็อคอินด้วย mail
 export const maliLogin = async (mail, password, remember) => {
     const res = await fetch('/api/login', {
         method: 'POST',
@@ -37,10 +40,10 @@ export const maliLogin = async (mail, password, remember) => {
         const storage = remember ? localStorage : sessionStorage;
 
         storage.setItem('user', JSON.stringify({
-            displayName: account.username,
+            username: account.username,
             email: account.mail,
-            uid: account.id,
-            photoURL: account.photoURL
+            id: account.id,
+            img: account.photoURL
         }));
         return account
     } else {
@@ -49,6 +52,7 @@ export const maliLogin = async (mail, password, remember) => {
 
 }
 
+//ล็อคอินด้วย Google
 export const GoogleLogin = async () => {
     try {
         const result = await signInWithPopup(auth, provider);
@@ -77,10 +81,10 @@ export const GoogleLogin = async () => {
         if (res.ok && data.success) {
             const account = data.user;
             localStorage.setItem('user', JSON.stringify({
-                displayName: account.username,
+                username: account.username,
                 email: account.mail,
-                uid: account.id,
-                photoURL: account.photoURL
+                id: account.id,
+                img: account.photoURL
             }));
         }
 
@@ -90,6 +94,7 @@ export const GoogleLogin = async () => {
 };
 
 
+//ออกจากระบบ
 export const handleLogout = async () => {
     try {
         await signOut(auth);

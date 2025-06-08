@@ -13,7 +13,7 @@ import { FaRegUser } from "react-icons/fa";
 import { LuNotebook } from "react-icons/lu";
 import { LuClipboardList } from "react-icons/lu";
 
-import { getOwnerAccount } from '../api/Account.js';
+import { getInfoAccount } from '../api/Account.js';
 
 
 
@@ -23,7 +23,7 @@ export default function MyProfile(){
     // Check login
     const [userinfo, setUserinfo] = useState(null);
     useEffect(() => {
-        getOwnerAccount().then(setUserinfo)
+        getInfoAccount().then(setUserinfo)
     }, []);
 
     //----------------------
@@ -53,8 +53,8 @@ export default function MyProfile(){
             <div className="profileInfoSection" data-aos="fade-up-right">
                 <div className="profileInfo" >
                     <button className="editButton"><MdOutlineModeEdit size={30} color='white'/>แก้ไขโปรไฟล์</button>
-                    <img src={userinfo?.photoURL ? userinfo.photoURL : profile} className="profileImg" />
-                    <p className="profileUsername">{userinfo?.displayName ? userinfo.displayName : ""}</p>
+                    <img src={userinfo? userinfo.img : profile} className="profileImg" />
+                    <p className="profileUsername">{userinfo? userinfo.username : "" }</p>
                     <div className="buttonSection">
                         {
                             ButtonDetail.map((item) =>(
@@ -69,9 +69,9 @@ export default function MyProfile(){
                     </div>
                 </div>
             </div>
-            {contentTab === "MyPost" && <MyPost ownerId={userinfo?.uid ? userinfo.uid : null}/>}
-            {contentTab === "MyDiary" && <MyDiary ownerId={userinfo?.uid ? userinfo.uid : null}/>}
-            {contentTab === "MyTodo" && <MyTodo ownerId={userinfo?.uid ? userinfo.uid : null}/>}
+            {contentTab === "MyPost" && <MyPost ownerId={userinfo? userinfo.id : null}/>}
+            {contentTab === "MyDiary" && <MyDiary ownerId={userinfo? userinfo.id : null}/>}
+            {contentTab === "MyTodo" && <MyTodo ownerId={userinfo? userinfo.id : null}/>}
             
         </div>
         </>

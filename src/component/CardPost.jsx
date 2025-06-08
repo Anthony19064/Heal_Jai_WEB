@@ -7,8 +7,9 @@ import { BsArrowRepeat } from "react-icons/bs";
 
 import { Link } from 'react-router-dom';
 import { getCountComment, getComment, addComment } from '../api/Post';
-import { getAccount } from '../api/Account';
+import { getAccount, getIdAccount } from '../api/Account';
 import '../css/CardPost.css';
+import { toast } from 'react-toastify';
 
 export default function CardPost({ postObj }) {
     const [commentState, setCommentState] = useState(false);
@@ -17,12 +18,7 @@ export default function CardPost({ postObj }) {
 
     const [userId, setUserId] = useState(null);
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || 'null');
-        if (user) {
-            setUserId(user.uid);
-        } else {
-            console.log("User is not logged in");
-        }
+        getIdAccount().then(setUserId)
     });
 
 
@@ -40,7 +36,7 @@ export default function CardPost({ postObj }) {
         if (postObj._id) {
             getCountComment(postObj._id, setCountComment);
         }
-    },[postObj._id])
+    }, [postObj._id])
 
     //ดึงคอมเม้นมาแสดง
     useEffect(() => {
@@ -50,6 +46,19 @@ export default function CardPost({ postObj }) {
             }
         }
     }, [commentState])
+
+    const SubmitComment = async () => {
+        const trimmed = commentInfo.trim();
+        if (!trimmed){
+            toast.error('กรุณาระบุข้อความที่ต้องการคอมเมนต์');
+            return;
+        }
+
+        await addComment(postObj._id, userId, commentInfo); //เพิ่มคอมเม้น
+        setcommentInfo(''); // reset input
+        getComment(postObj._id, setcommenObj); //ดึงข้อมูลคอมเม้น
+        getCountComment(postObj._id, setCountComment); //ดึงจำนวนคอมเม้น
+    }
 
 
     const ButtonPost = [
@@ -73,7 +82,7 @@ export default function CardPost({ postObj }) {
 
     return (
         <>
-            <div className="cardMypost" data-aos="fade-up">
+            <div className="cardMypost" data-aos="fade-left">
                 <div className="headCard">
                     <Link to={`/profile/${Account?.username ? Account.username : ''}`} style={{ textDecoration: 'none' }}>
                         <div className="OwnerPost">
@@ -103,14 +112,14 @@ export default function CardPost({ postObj }) {
                 {commentState === true &&
                     <div className="commentPost" data-aos='fade-up'>
                         <div className="inputComment">
-                            <input type="text" placeholder='เขียนความคิดเห็น. . . .' value={commentInfo} onChange={(e) => setcommentInfo(e.target.value)} />
-                            <button onClick={async () => {
-                                await addComment(postObj._id, userId, commentInfo); //เพิ่มคอมเม้น
-                                setcommentInfo(''); // reset input
-                                getComment(postObj._id, setcommenObj); //ดึงข้อมูลคอมเม้น
-                                getCountComment(postObj._id, setCountComment); //ดึงจำนวนคอมเม้น
-                            }}>
-                                ส่ง</button>
+                            <input type="text" placeholder='เขียนความคิดเห็น. . . .' value={commentInfo} onChange={(e) => setcommentInfo(e.target.value)}
+                                onKeyDown={async (e) => {
+                                    if (e.key === 'Enter') {
+                                        e.preventDefault();
+                                        await SubmitComment();
+                                    }
+                                }} />
+                            <button onClick={() => SubmitComment()}>ส่ง</button>
                         </div>
 
                         {commenObj.map((comment) => (

@@ -12,6 +12,8 @@ import Themebutton from '../component/Themebutton.jsx'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import { getInfoAccount } from "../api/Account.js";
+
 
 
 export default function Profile() {
@@ -30,17 +32,11 @@ export default function Profile() {
 
 
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || 'null');
-
-        if (user) {
-            setUserinfo(user);
-        } else {
-            console.log("User is not logged in");
-        }
+        getInfoAccount().then(setUserinfo);
     }, []);
 
     if (userinfo) {
-        if (username === userinfo.displayName) {
+        if (username === userinfo.username) {
             profileContent = <MyProfile />;
         }
         else {

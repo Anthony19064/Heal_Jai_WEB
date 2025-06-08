@@ -1,7 +1,13 @@
 //ดึงข้อมูลผู้ใช้จาก local หรือ session
-export const getOwnerAccount = async () => {
+export const getInfoAccount = async () => {
     const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || 'null');
     return user
+}
+
+//ดึง ID ผู้ใช้จาก local หรือ session
+export const getIdAccount = async () => {
+    const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || 'null');
+    return user.id
 }
 
 //ดึงข้อมูลผู้ใช้จาก DB
