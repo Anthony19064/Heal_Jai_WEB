@@ -22,6 +22,8 @@ import { CiSun } from "react-icons/ci";
 import { BsEmojiSmile } from "react-icons/bs";
 import { BsSend } from "react-icons/bs";
 
+const API = import.meta.env.VITE_API_URL;
+
 
 const RoleContext = createContext();
 
@@ -71,7 +73,7 @@ export default function ChatUser() {
     useEffect(() => {
         if (role) {
             //สร้าง Socket
-            socketRef.current = io('http://localhost:3000');
+            socketRef.current = io(API);
 
             //ส่ง event ลงทะเบียนเข้า queue
             socketRef.current.emit('register', role);

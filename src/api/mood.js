@@ -2,7 +2,7 @@
 //เพิ่ม mood 
 export const addMood = async (userId, userText, moodValue) => {
     try {
-        const res = await fetch('/api/addMood', {
+        const res = await fetch(`${API}/api/addMood`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userId, userText, moodValue })
@@ -20,7 +20,7 @@ export const addMood = async (userId, userText, moodValue) => {
 //อัพเดตเวลาต่อเนื่องการบันทึกอารมณ์
 export const updateDayStack = async ( userId ) => {
     try {
-        const res = await fetch('/api/updateDayStack', {
+        const res = await fetch(`${API}/api/updateDayStack`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userId })
@@ -61,7 +61,7 @@ export function generateCalendar(month, year) {
 
 //ดึงข้อมูลอารมณ์ทั้งหมด
 export const getMymood = async (userId, thisMonth, thisYear) => {
-    const res = await fetch('/api/getMood', {
+    const res = await fetch(`${API}/api/getMood`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId, thisMonth, thisYear }),
@@ -106,7 +106,7 @@ export const prevMonth = (thisMonth, thisYear, setThismonth, setTthisYear) => {
 
 //ดึงข้อมูลอารมณ์ของเมื่อวาน
 export const getLatestMood = async (userId, setLatestMood) => {
-    const res = await fetch('/api/getLatestMood', {
+    const res = await fetch(`${API}/api/getLatestMood`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId })
@@ -123,7 +123,7 @@ export const getLatestMood = async (userId, setLatestMood) => {
 
 //ดึงข้อมูลเวลาต่อเนื่องการบันทึกอารมณ์
 export const getDayStack = async (userId, setDayStack) => {
-    const res = await fetch('/api/getDayStack', {
+    const res = await fetch(`${API}/api/getDayStack`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId })

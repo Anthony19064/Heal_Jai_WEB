@@ -23,7 +23,7 @@ const API = import.meta.env.VITE_API_URL;
 //ดึงโพสของตัวเอง
 export const getMypost = async (ownerId) => {
     try {
-        const res = await fetch('/api/getMypost', {
+        const res = await fetch(`${API}/api/getMypost`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ownerId }), //ส่งไอดีตัวเอง
@@ -42,7 +42,7 @@ export const getMypost = async (ownerId) => {
 export const getAllPost = async (page, limit) => {
     try {
         const skip = page * limit;
-        const res = await fetch(`/api/getAllpost?skip=${skip}&limit=${limit}`);
+        const res = await fetch(`${API}/api/getAllpost?skip=${skip}&limit=${limit}`);
         const data = await res.json();
         if (data && data.success) {
             return data.data
@@ -54,7 +54,7 @@ export const getAllPost = async (page, limit) => {
 
 //ดึงจำนวนคนที่กดถูกใจ
 export const getCountLike = async (postID, setCountLike) => {
-    const res = await fetch('/api/countLike', {
+    const res = await fetch(`${API}/api/countLike`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ postID }),
@@ -67,7 +67,7 @@ export const getCountLike = async (postID, setCountLike) => {
 }
 
 export const addLike = async (postID, userID) => {
-    const res = await fetch('/api/addLike', {
+    const res = await fetch(`${API}/api/addLike`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ postID, userID }),
@@ -80,7 +80,7 @@ export const addLike = async (postID, userID) => {
 }
 
 export const getLike = async (postID, userID) => {
-    const res = await fetch('/api/getLike', {
+    const res = await fetch(`${API}/api/getLike`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ postID, userID }),
@@ -93,7 +93,7 @@ export const getLike = async (postID, userID) => {
 
 //ดึงจำนวนคนที่คอมเมนต์
 export const getCountComment = async (postID, setCountComment) => {
-    const res = await fetch('/api/countComment', {
+    const res = await fetch(`${API}/api/countComment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ postID }),
@@ -109,7 +109,7 @@ export const getCountComment = async (postID, setCountComment) => {
 
 //ดึงข้อมูลคอมเมนต์
 export const getComment = async (postID, setcommenObj) => {
-    const resComment = await fetch('/api/getComment', {
+    const resComment = await fetch(`${API}/api/getComment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ postID }),
@@ -141,7 +141,7 @@ export const getComment = async (postID, setcommenObj) => {
 
 //เพิ่มคอมเมนต์
 export const addComment = async (postID, userId, commentInfo) => {
-    const res = await fetch('/api/addComment', {
+    const res = await fetch(`${API}/api/addComment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ postID, userId, commentInfo }),
@@ -155,7 +155,7 @@ export const addComment = async (postID, userId, commentInfo) => {
 
 //เพิ่มโพส
 export const addPost = async (ownerId, infoPost, imgUrl) => {
-    const res = await fetch('/api/addPost', {
+    const res = await fetch(`${API}/api/addPost`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ownerId, infoPost, imgUrl })

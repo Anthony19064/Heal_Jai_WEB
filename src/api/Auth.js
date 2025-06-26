@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 //ลงทะเบียนสมัครสมาชิก
 export const regis = async (username, mail, password, confirmPassword) => {
     try {
-        const res = await fetch('/api/regis', {
+        const res = await fetch(`${API}/api/regis`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, mail, password, confirmPassword }),
@@ -27,7 +27,7 @@ export const regis = async (username, mail, password, confirmPassword) => {
 
 //ล็อคอินด้วย mail
 export const maliLogin = async (mail, password, remember) => {
-    const res = await fetch('/api/login', {
+    const res = await fetch(`${API}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mail, password }),
@@ -70,7 +70,7 @@ export const GoogleLogin = async () => {
             photoURL = user.photoURL;
         }
 
-        const res = await fetch('/api/googleAuth', {
+        const res = await fetch(`${API}/api/googleAuth`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ displayName, email, uid, photoURL }),

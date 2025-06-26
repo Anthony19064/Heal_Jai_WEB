@@ -16,7 +16,7 @@ export const getIdAccount = async () => {
 
 //ดึงข้อมูลผู้ใช้จาก DB
 export const getAccount = async (postowner, setAccount) => {
-    const res = await fetch('/api/getAccount', {
+    const res = await fetch(`${API}/api/getAccount`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ postowner }),
