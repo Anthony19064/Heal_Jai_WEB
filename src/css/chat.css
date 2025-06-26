@@ -40,7 +40,7 @@
     align-items: center;
 }
 
-.Aos{
+.Aos {
     width: 100%;
     height: auto;
     display: flex;
@@ -254,9 +254,23 @@
         width: 95%;
     }
 
+    .chatCard {
+        justify-content: space-around;
+    }
+
     .chatType {
         flex-direction: column;
         gap: 30px;
         margin-bottom: 30px;
+    }
+
+    .chatUserImg {
+        width: 250px;
+        height: 250px;
+    }
+
+    .chatAiImg {
+        width: 260px;
+        height: 260px;
     }
 }
