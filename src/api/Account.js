@@ -1,3 +1,5 @@
+const API = import.meta.env.VITE_API_URL;
+
 //ดึงข้อมูลผู้ใช้จาก local หรือ session
 export const getInfoAccount = async () => {
     const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || 'null');

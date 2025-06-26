@@ -1,3 +1,4 @@
+const API = import.meta.env.VITE_API_URL;
 
 //เพิ่ม mood 
 export const addMood = async (userId, userText, moodValue) => {

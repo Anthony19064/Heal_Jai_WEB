@@ -2,6 +2,7 @@ import { signOut, signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../firebase.js';
 import { toast } from 'react-toastify';
 
+const API = import.meta.env.VITE_API_URL;
 
 //ลงทะเบียนสมัครสมาชิก
 export const regis = async (username, mail, password, confirmPassword) => {
