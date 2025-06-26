@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 import '../css/chat.css';
 import chatUser from '../assets/icons/Animation-UserChat.json';
-import chatAi from '../assets/icons/Animation-AIChat.json';
+import chatAi from '../assets/icons/Animation-AiChat.json';
 
 
 export default function Chat() {
