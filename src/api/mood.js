@@ -1,11 +1,11 @@
 
 //เพิ่ม mood 
-export const addMood = async (userId, userMood, userText, moodValue) => {
+export const addMood = async (userId, userText, moodValue) => {
     try {
         const res = await fetch('/api/addMood', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userId, userMood, userText, moodValue })
+            body: JSON.stringify({ userId, userText, moodValue })
         });
 
         const data = await res.json();
@@ -68,12 +68,16 @@ export const getMymood = async (userId, thisMonth, thisYear) => {
     });
 
     const data = await res.json();
-    if (data) {
-        const convertedData = data.map(item => ({ //แปลง dateAt ให้เเป็น type Date
+    if (data && data.success) {
+        const moodObj = data.data;
+        const convertedData = moodObj.map(item => ({ //แปลง dateAt ให้เเป็น type Date
             ...item,
             dateAt: new Date(item.dateAt)
         }));
         return convertedData;
+    }
+    else{
+        return [];
     }
 
 }
@@ -111,6 +115,9 @@ export const getLatestMood = async (userId, setLatestMood) => {
     const value = await res.json();
     if (res.ok && value.success) {
         setLatestMood(value.data);
+        return;
+    }else{
+        setLatestMood(null);
     }
 }
 

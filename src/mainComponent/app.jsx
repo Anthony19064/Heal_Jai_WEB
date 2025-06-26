@@ -18,14 +18,16 @@ export default function App() {
     duration: 700,
     once: false, 
   });
+
+  AOS.refresh();
   });
   return (
     <>
     <ThemeProvider>
       <Navbar />
       <WelcomeSection />
-      <Mood />
       <FeatureSection />
+      <Mood />
       <Footer />
       <Themebutton />
     </ThemeProvider>

@@ -1,7 +1,8 @@
 import { ThemeProvider } from '../component/ThemeContext.jsx';
 import Navbar from '../component/Navbar.jsx';
 import AllPost from '../component/AllPost.jsx';
-import Themebutton from '../component/Themebutton.jsx'
+import Themebutton from '../component/Themebutton.jsx';
+import Footer from '../component/Footer.jsx';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -20,6 +21,7 @@ export default function Community() {
       <Navbar />
       <AllPost />
       <Themebutton />
+      <Footer />
     </ThemeProvider>
     </>
   );

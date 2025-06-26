@@ -1,11 +1,11 @@
-.WelcomeZone{
+.WelcomeZone {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.section{
+.section {
     width: 70%;
     height: 560px;
     height: auto;
@@ -15,7 +15,7 @@
     margin-top: 140px;
 }
 
-.imgbg{
+.imgbg {
     width: 1450px;
     height: 900px;
     object-fit: cover;
@@ -24,14 +24,14 @@
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
 }
 
-.content{
+.content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
-.textcontent{
+.textcontent {
     margin: 0;
     margin-top: 30px;
     padding: 0;
@@ -42,18 +42,18 @@
     line-height: 2;
     letter-spacing: 2px;
     font-style: normal;
-    color:white;
+    color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.healjai{
+.healjai {
     text-shadow: none;
     letter-spacing: 2px;
     color: var(--texthealjai-color);
     transition: color 0.7s ease-in-out;
 }
 
-.card{
+.card {
     width: 480px;
     height: 560px;
     background-color: white;
@@ -67,18 +67,23 @@
     transition: border-color 0.7s ease-in-out;
 }
 
-.cardimg{
+.cardimg {
     width: 330px;
     height: 330px;
     animation: spin infinite 80s linear;
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
+    from {
+        transform: rotate(0deg);
+    }
 
-.cardtext{
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.cardtext {
     margin: 0px;
     margin-top: 20px;
     padding: 0px;
@@ -91,13 +96,13 @@
     text-align: center;
 }
 
-.rightcontent{
-    display: block ;
+.rightcontent {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.circleRight{
+.circleRight {
     width: 458px;
     height: 458px;
     background-color: var(--circleright-color);
@@ -107,11 +112,11 @@
     top: -110px;
     right: -60px;
     z-index: -1;
-    filter: blur(5px);  
+    filter: blur(5px);
     transition: background-color 0.7s ease-in-out;
 }
 
-.circleLeft{
+.circleLeft {
     width: 458px;
     height: 458px;
     background-color: var(--circleleft-color);
@@ -123,4 +128,47 @@
     z-index: -1;
     filter: blur(5px);
     transition: background-color 0.7s ease-in-out;
+}
+
+
+@media (max-width: 767px) {
+    .section{
+        width: 95%;
+        margin-top: 80px;
+    }
+
+    .leftcontent {
+        display: none;
+    }
+
+    .content {
+        justify-content: center;
+    }
+
+    .card{
+        width: 360px;
+        height: 500px;
+        gap: 15px;
+    }
+
+    .cardimg{
+        width: 250px;
+        height: 250px;
+    }
+
+    .cardtext{
+        font-size: 15px;
+    }
+}
+
+
+/* สำหรับ iPad (แนวนอน/แนวตั้งก็ครอบคลุม) */
+@media (min-width: 768px) and (max-width: 1024px) { 
+    .leftcontent {
+        display: none;
+    }
+
+    .content {
+        justify-content: center;
+    }
 }

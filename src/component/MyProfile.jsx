@@ -23,7 +23,7 @@ export default function MyProfile(){
     // Check login
     const [userinfo, setUserinfo] = useState(null);
     useEffect(() => {
-        getInfoAccount().then(setUserinfo)
+        getInfoAccount().then(setUserinfo);
     }, []);
 
     //----------------------

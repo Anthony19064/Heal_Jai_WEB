@@ -15,12 +15,12 @@ import 'aos/dist/aos.css';
 
 export default function Contractus() {
 
-      useEffect(() => {
-      AOS.init({
-        duration: 700,
-        once: false, 
-      });
-      });
+    useEffect(() => {
+        AOS.init({
+            duration: 700,
+            once: false,
+        });
+    });
 
     useEffect(() => {
         const container = document.getElementById('background-circles');
@@ -29,12 +29,12 @@ export default function Contractus() {
         const createCircle = () => {
             const circle = document.createElement('div');
             circle.className = 'circle';
-            
+
 
             const left = Math.random() * 100;
             const sizes = Math.random() * 20 + 30;
             const colors = `hsl(${Math.random() * 360}, 70%, 70%)`;
-            
+
 
             circle.style.left = `${left}%`;
             circle.style.width = `${sizes}px`;
@@ -53,14 +53,15 @@ export default function Contractus() {
         return () => clearInterval(interval); // cleanup ตอน unmount
     }, []);
 
+
     return (
         <>
-        <ThemeProvider>
-            <Navbar />
-            <div id="background-circles"></div>
-            <Themebutton />
-        </ThemeProvider>
-           
+            <ThemeProvider>
+                <Navbar />
+                <div id="background-circles"></div>
+                <Themebutton />
+            </ThemeProvider>
+
         </>
     );
 }

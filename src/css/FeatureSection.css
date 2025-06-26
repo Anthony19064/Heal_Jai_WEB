@@ -1,8 +1,12 @@
-.FeatureZone{
+.FeatureZone {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.headerDiv {
+    margin-top: 100px;
 }
 
 .headerFeature {
@@ -51,7 +55,6 @@
     position: relative;
     overflow: hidden;
     background-color: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: all 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -101,8 +104,9 @@
 }
 
 .featureSliderCard:hover {
-    transform: rotate(-5deg);
+    transform: translateY(-15px);
     transition: all 0.3s ease-in-out;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.3);
     border-color: white;
 }
 
@@ -241,4 +245,92 @@
 .p-carousel-indicator.p-highlight {
     background-color: #464646 !important;
     /* สี active */
+}
+
+@media (max-width: 767px) {
+    .headerFeature {
+        width: 95%;
+        text-align: center;
+        font-size: 30px;
+        text-wrap: wrap;
+        margin-top: 170px;
+        margin-bottom: 20px;
+        line-height: 200%;
+    }
+
+    .headerDiv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .carouselSection {
+        width: 95%;
+    }
+
+    .commuText {
+        display: none;
+    }
+
+    .featureSliderCard {
+        width: 100%;
+        height: fit-content;
+        padding: 0px 20px 10px 20px;
+    }
+
+    .featureSliderTitle {
+        font-size: 30px;
+    }
+
+    .commuInfo {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .p-carousel .p-carousel-prev,
+    .p-carousel .p-carousel-next {
+        display: none;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .headerFeature {
+        width: 100%;
+        font-size: 30px;
+        text-wrap: wrap;
+        margin-top: 170px;
+        margin-bottom: 20px;
+        line-height: 200%;
+    }
+
+    .headerDiv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .carouselSection {
+        width: 90%;
+    }
+
+    .commuText {
+        display: none;
+    }
+
+    .featureSliderCard {
+        width: 100%;
+        height: fit-content;
+        padding: 0px 60px 10px 60px;
+    }
+
+    .featureSliderTitle {
+        font-size: 33px;
+    }
+
+    .commuInfo {
+        font-size: 20px;
+        text-align: center;
+    }
 }

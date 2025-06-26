@@ -1,13 +1,17 @@
 //ดึงข้อมูลผู้ใช้จาก local หรือ session
 export const getInfoAccount = async () => {
     const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || 'null');
-    return user
+    if(user){
+        return user
+    }
 }
 
 //ดึง ID ผู้ใช้จาก local หรือ session
 export const getIdAccount = async () => {
     const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || 'null');
-    return user.id
+    if(user){
+        return user.id
+    }
 }
 
 //ดึงข้อมูลผู้ใช้จาก DB
@@ -19,7 +23,7 @@ export const getAccount = async (postowner, setAccount) => {
     });
 
     const data = await res.json();
-    if (data) {
-        setAccount(data);
+    if (data && data.success) {
+        setAccount(data.data);
     }
 }

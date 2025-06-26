@@ -99,7 +99,7 @@
 
 .sadDay{
     border: 3px solid white;
-    background-color: #5B97C2;
+    background-color: #7BD3EA;
     transition: none;
 }
 .sadDay p {
@@ -118,7 +118,7 @@
 }
 
 .normalDay{
-    background-color: #767676;
+    background-color: #967AF9;
     border: 3px solid white;
     transition: none;
 }
@@ -137,12 +137,46 @@
     transition: none;
 }
 
-.stressDay{
-    background-color: #967AF9;
+.funnyDay{
+    background-color: #B0DB9C;
     border: 3px solid white;
     transition: none;
 }
-.stressDay p {
+.funnyDay p {
     color: white;
     transition: none;
+}
+
+
+@media (max-width: 767px) {
+    .monthCalendar{
+        font-size: 25px;
+    }
+
+    .DateCalendar p{
+        font-size: 18px;
+    }
+
+    .day{
+        width: 25px;
+        height: 25px;
+        border: 1px solid white;
+    }
+
+    .notday{
+        width: 25px;
+        height: 25px;
+    }
+
+    .day p{
+        font-size: 12px;
+        font-style: normal;
+    }
+    
+    .iconarrowRight{
+        margin-right: 20px;
+    }
+    .iconarrowLeft{
+        margin-left: 20px;
+    }
 }

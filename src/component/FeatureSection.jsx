@@ -5,11 +5,20 @@ import dairyImage from '../assets/images/dairyImage.svg'
 import { Carousel } from 'primereact/carousel';
 import { Link } from 'react-router-dom';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+import { useEffect } from 'react';
+
 export default function FeatureSection() {
 
+    useEffect(() => {
+        AOS.refresh();
+    }, []);
+
     const features = [
+        { image: chatImage, title: "ระบายใจ", info: " แชทแบบไม่ระบุตัวตนกับผู้ใช้อื่น<br/>หรือ Ai ประจำเว็บไซต์", button: "เริ่มแชท", text: "พูดสิ่งที่อยู่ในใจ<br/>หรือ<br/>รับฟังความในใจของคนอื่นดูไหม ?", class: 'chat', link: "/chat" },
         { image: commuImage, title: "คอมมูนิตี้", info: "แบ่งปันกำลังใจ และพูดคุยกับผู้ใช้อื่น", button: "เข้าสู่ชุมชน", text: "มารับกำลังใจจากคนอื่น<br/>หรือ<br/>ให้กำลังใจคนอื่นกันเถอะ :)", class: 'commu', link: "/commu" },
-        { image: chatImage, title: "ระบายใจ", info: "แชทแบบไม่ระบุตัวตนกับผู้ใช้อื่น<br/>หรือ Ai ประจำเว็บไซต์", button: "เริ่มแชท", text: "พูดสิ่งที่อยู่ในใจ<br/>หรือ<br/>รับฟังความในใจของคนอื่นดูไหม ?", class: 'chat', link: "/chat" },
         { image: dairyImage, title: "ไดอารี่", info: "บันทึกเรื่องราวดีๆในชีวิตประจำวัน", button: "เขียนไดอารี่", text: "มาหาความสุขเล็กๆน้อยๆ<br/>รอบตัวกันเถอะ ❤️", class: 'dairy', link: "/dairy" }
     ];
 
@@ -40,7 +49,7 @@ export default function FeatureSection() {
     return (
         <>
             <div className='FeatureZone'>
-                <div data-aos="fade-up">
+                <div data-aos="fade-up" className='headerDiv'>
                     <p className="headerFeature" >{`พื้นที่พักหัวใจสำหรับทุกคน :)`}</p>
                 </div>
                 <Carousel
@@ -52,6 +61,8 @@ export default function FeatureSection() {
                     className="carouselSection"
                     data-aos='fade-up'
                     data-aos-delay={400}
+                    autoplayInterval={3000}
+                    autoPlay
                 />
             </div>
         </>

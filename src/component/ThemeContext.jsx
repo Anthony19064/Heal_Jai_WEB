@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { TbBackground } from "react-icons/tb";
 
 const ThemeContext = createContext();
 
