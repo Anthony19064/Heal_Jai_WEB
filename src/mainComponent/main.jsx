@@ -10,6 +10,7 @@ import Community from './community.jsx'
 import Chat from './Chat.jsx'
 import ChatUser from '../component/ChatUser.jsx'
 import ChatAi from '../component/ChatAi.jsx'
+import Diary from './diary.jsx'
 
 import {
   createBrowserRouter,
@@ -65,6 +66,10 @@ let router = createBrowserRouter([
   {
     path: "/chatWithAi",
     Component: ChatAi
+  },
+  {
+    path: "/diary",
+    Component: Diary
   },
 
 

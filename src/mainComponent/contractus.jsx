@@ -59,6 +59,7 @@ export default function Contractus() {
             <ThemeProvider>
                 <Navbar />
                 <div id="background-circles"></div>
+                <center> <p>ยังไม่ได้ทำค้าบ ซอรี่</p></center>
                 <Themebutton />
             </ThemeProvider>
 

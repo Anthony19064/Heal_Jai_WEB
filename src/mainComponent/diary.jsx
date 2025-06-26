@@ -7,7 +7,7 @@ import Navbar from '../component/Navbar.jsx';
 import Themebutton from '../component/Themebutton.jsx';
 
 
-export default function ChatAi() {
+export default function Diary() {
     useEffect(() => {
         AOS.init({
             duration: 700,

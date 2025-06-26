@@ -47,7 +47,7 @@ export default function ChatUser() {
 
 
 
- 
+
     const chatCardData = [
 
         {
@@ -205,7 +205,13 @@ export default function ChatUser() {
                                         <div className="rightInput">
                                             <textarea rows={1} placeholder='พิมพ์ข้อความ. . . .'
                                                 value={message}
-                                                onChange={(e) => setMessage(e.target.value)}>
+                                                onChange={(e) => setMessage(e.target.value)}
+                                                onKeyDown={async (e) => {
+                                                    if (e.key === 'Enter') {
+                                                        e.preventDefault();
+                                                        sendMessage();
+                                                    }
+                                                }}>
                                             </textarea>
                                             <BsEmojiSmile size={27} className='InputButton' />
                                             <BsSend size={27} className='InputButton' onClick={() => sendMessage()} />
