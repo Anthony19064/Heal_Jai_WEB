@@ -45,7 +45,13 @@ export default function ChatUser() {
     const socketRef = useRef(null);
     const bottomChatRef = useRef(null);
 
-
+    useEffect(() => {
+        const audio = new Audio('/ChatPopSound.mp3');
+        audio.volume = 0.5;
+        if (chat.length > 0) {
+            audio.play().catch((err) => console.error('เล่นเสียงไม่ได้:', err));
+        }
+    }, [chat]);
 
 
     const chatCardData = [
@@ -113,15 +119,17 @@ export default function ChatUser() {
 
     //ฟังก์ชั่นกดตรงข้อความ
     const sendMessage = () => {
-        const timeChat = new Date();
-        const hours = timeChat.getHours();
-        const minutes = timeChat.getMinutes().toString().padStart(2, '0');
-        const timeString = `${hours}:${minutes} น.`;
+        if (message.trim() !== '') {
+            const timeChat = new Date();
+            const hours = timeChat.getHours();
+            const minutes = timeChat.getMinutes().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes} น.`;
 
-        //ส่ง event sendMessage
-        socketRef.current.emit('sendMessage', ({ roomId: roomid, message: message, time: timeString, role: role }));
-        setChat(prev => [...prev, { message, sender: 'me', time: timeString, role }]);
-        setMessage('');
+            //ส่ง event sendMessages
+            socketRef.current.emit('sendMessage', ({ roomId: roomid, message: message, time: timeString, role: role }));
+            setChat(prev => [...prev, { message, sender: 'me', time: timeString, role }]);
+            setMessage('');
+        }
     }
 
     useEffect(() => {

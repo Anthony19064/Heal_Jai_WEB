@@ -61,8 +61,10 @@ export default function CardPost({ postObj }) {
 
     //ดึงคอมเม้นมาแสดง
     const OpenComment = async () => {
-        await getComment(postObj._id, setcommenObj);
-        setCommentState(prev => !prev)
+        setCommentState(prev => !prev);
+        if (!commentState) {
+            await getComment(postObj._id, setcommenObj); 
+        }
     }
 
     const SubmitComment = async () => {
@@ -87,19 +89,19 @@ export default function CardPost({ postObj }) {
 
     const ButtonPost = [
         {
-            icon: stateLike ? <FaHeart size={30} color="#FD7D7E" data-aos='zoom-out' data-aos-duration="500" /> : <FaRegHeart size={30} color="#FD7D7E" data-aos='zoom-in' data-aos-duration="500" />,
+            icon: stateLike ? <FaHeart color="#FD7D7E" data-aos='zoom-out' data-aos-duration="500" /> : <FaRegHeart color="#FD7D7E" data-aos='zoom-in' data-aos-duration="500" />,
             text: countLike,
             color: 'likebutton',
             functionButton: () => Likebutton()
         },
         {
-            icon: <FaRegCommentDots size={30} color="#FFAC59" />,
+            icon: <FaRegCommentDots color="#FFAC59" />,
             text: countComment,
             color: 'commentbutton',
             functionButton: async () => OpenComment(),
         },
         {
-            icon: <BsArrowRepeat size={30} color="#7F71FF" />,
+            icon: <BsArrowRepeat color="#7F71FF" />,
             text: '5',
             color: 'repostbutton'
         },
@@ -119,7 +121,7 @@ export default function CardPost({ postObj }) {
                         </div>
                     </Link>
                     <div className="moreIcon">
-                        <TfiMore size={55} color="var(--main-color)" />
+                        <TfiMore color="var(--main-color)" />
                     </div>
                 </div>
 
@@ -129,7 +131,7 @@ export default function CardPost({ postObj }) {
                     {postObj.img && (
                         <>
                             {!imgLoaded && (
-                                <Skeleton  className='postImgSkeleton' />
+                                <Skeleton className='postImgSkeleton' />
                             )}
                             <img src={postObj.img} onLoad={() => setImgLoaded(true)} onError={() => setImgLoaded(true)} style={{
                                 opacity: imgLoaded ? 1 : 0,

@@ -27,5 +27,6 @@ export const getAccount = async (postowner, setAccount) => {
     const data = await res.json();
     if (data && data.success) {
         setAccount(data.data);
+        return;
     }
 }

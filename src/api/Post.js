@@ -121,7 +121,7 @@ export const getComment = async (postID, setcommenObj) => {
         // Promise.all รันพร้อมกัน
         const commentWithAccount = await Promise.all(
             commentObj.map(async (item) => {
-                const res = await fetch('/api/getAccount', {
+                const res = await fetch(`${API}/api/getAccount`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ postowner: item.ownerComment }),

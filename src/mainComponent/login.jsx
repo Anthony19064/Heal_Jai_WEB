@@ -69,7 +69,7 @@ export default function Login() {
                                 <a href="" className="forgot">ลืมรหัสผ่าน ?</a>
                             </div>
                         </div>
-                        <button className="submitButton" type="submit">ไปกันเลยยย</button>
+                        <button className="submitLoginButton" type="submit">ไปกันเลยยย</button>
                     </form>
 
                     <div className="lineSection">

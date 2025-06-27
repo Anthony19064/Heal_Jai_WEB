@@ -109,7 +109,7 @@ export default function AllPost() {
         "😡",]
 
     const groupedText = [
-       "พื้น", "ที่", "ส่ง", "ต่อ", "ความ", "รู้", "สึก", "ดีๆ"
+        "พื้น", "ที่", "ส่ง", "ต่อ", "ความ", "รู้", "สึก", "ดีๆ"
     ];
 
     return (
@@ -134,81 +134,85 @@ export default function AllPost() {
                         </motion.span>
                     ))}
                 </p>
-                <div className="creatPostSection" data-aos='fade-up' data-aos-delay={200}>
-                    <div className="ownerAccount">
-                        <img src={userinfo ? userinfo.img : null} alt="" />
-                        <p>{userinfo ? userinfo.username : ""}</p>
-                    </div>
-                    <textarea placeholder='ส่งต่อความรู้สึกดีๆกันเถอะ . . . .' value={infoPost} onChange={(e) => setinfoPost(e.target.value)}
-                        onKeyDown={async (e) => {
-                            if (e.key === 'Enter') {
-                                e.preventDefault();
-                                CreatePost();
-                            }
-                        }}></textarea>
-                    <AnimatePresence>
-                        {imgPost && (
-                            <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: 'auto', opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                style={{ overflow: 'hidden' }}
-                            >
-                                <div className='previewZone' data-aos='fade-up'>
-                                    <img src={URL.createObjectURL(imgPost)} className='previewImg'></img>
-                                    <IoCloseCircleOutline size={30} color='#464646' className='closeIcon' onClick={() => setImgPost(null)} />
-                                </div>
-                            </motion.div>
-
-                        )}
-                    </AnimatePresence>
-
-
-                    <div className="buttonCreatZone">
-                        <div className="buttonLeft">
-                                <BsEmojiSmile size={35} color='var(--main-color)' onClick={() => { setEmojiState(prev => !prev) }} />
-                            <label htmlFor="fileInput" style={{ cursor: "pointer" }}>
-                                <IoMdImage size={40} color='var(--main-color)' />
-                            </label>
-                            <input
-                                id="fileInput"
-                                type="file"
-                                accept="image/*"
-                                style={{ display: "none" }}
-                                onChange={(e) => setImgPost(e.target.files[0])}
-                            />
+                <div className="createPostSection">
+                    <div className="creatPost" data-aos='fade-up' data-aos-delay={200}>
+                        <div className="ownerAccount">
+                            <img src={userinfo ? userinfo.img : null} alt="" />
+                            <p>{userinfo ? userinfo.username : ""}</p>
                         </div>
-                        <button onClick={CreatePost}>{createLoading ? <Lottie animationData={loadingAnimation} loop={true} autoplay={true} className='createLoad' /> : 'สร้างโพส'}</button>
+                        <textarea placeholder='ส่งต่อความรู้สึกดีๆกันเถอะ . . . .' value={infoPost} onChange={(e) => setinfoPost(e.target.value)}
+                            onKeyDown={async (e) => {
+                                if (e.key === 'Enter') {
+                                    e.preventDefault();
+                                    CreatePost();
+                                }
+                            }}></textarea>
+                        <AnimatePresence>
+                            {imgPost && (
+                                <motion.div
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: 'auto', opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                    style={{ overflow: 'hidden' }}
+                                >
+                                    <div className='previewZone' data-aos='fade-up'>
+                                        <img src={URL.createObjectURL(imgPost)} className='previewImg'></img>
+                                        <IoCloseCircleOutline size={30} color='#464646' className='closeIcon' onClick={() => setImgPost(null)} />
+                                    </div>
+                                </motion.div>
+
+                            )}
+                        </AnimatePresence>
+
+
+                        <div className="buttonCreatZone">
+                            <div className="buttonLeft">
+                                <BsEmojiSmile size={35} color='var(--main-color)' onClick={() => { setEmojiState(prev => !prev) }} />
+                                <label htmlFor="fileInput" style={{ cursor: "pointer" }}>
+                                    <IoMdImage size={40} color='var(--main-color)' />
+                                </label>
+                                <input
+                                    id="fileInput"
+                                    type="file"
+                                    accept="image/*"
+                                    style={{ display: "none" }}
+                                    onChange={(e) => setImgPost(e.target.files[0])}
+                                />
+                            </div>
+                            <button onClick={CreatePost}>{createLoading ? <Lottie animationData={loadingAnimation} loop={true} autoplay={true} className='createLoad' /> : 'สร้างโพส'}</button>
+
+                        </div>
+                        <AnimatePresence>
+                            {emojiState && (
+                                <motion.div
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: 'auto', opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                    style={{ overflow: 'hidden' }}
+                                >
+                                    <div className="emojiSection" data-aos='fade-up'>
+                                        {emojis.map((emoji) => (
+                                            <span key={emoji} onClick={() => setinfoPost(prev => prev + emoji)}>{emoji}</span>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+
 
                     </div>
-                    <AnimatePresence>
-                        {emojiState && (
-                            <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: 'auto', opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                style={{ overflow: 'hidden' }}
-                            >
-                                <div className="emojiSection" data-aos='fade-up'>
-                                    {emojis.map((emoji) => (
-                                        <span key={emoji} onClick={() => setinfoPost(prev => prev + emoji)}>{emoji}</span>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-
-
                 </div>
-                <div className="allpostSection">
-                    {
-                        postObject.length > 0 && postObject.map((post) => (
-                            <CardPost key={post._id} postObj={post} />
-                        ))
-                    }
+                <div className="allPostZone">
+                    <div className="allpostSection">
+                        {
+                            postObject.length > 0 && postObject.map((post) => (
+                                <CardPost key={post._id} postObj={post} />
+                            ))
+                        }
 
+                    </div>
                 </div>
                 {/* ไว้โหลดโพสเพิ่มเมื่อเลื่อนมาถึง */}
                 <div ref={ref} style={{ height: 1, background: "transparent" }}></div>

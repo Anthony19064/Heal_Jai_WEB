@@ -1,4 +1,4 @@
-.regisForm{
+.regisForm {
     width: 643px;
     height: 728px;
     background-color: white;
@@ -11,6 +11,48 @@
     z-index: 0;
 }
 
-.submitButton{
-    margin-top: 50px;
+.submitRegisButton {
+    margin-top: 20px;
+    width: 203px;
+    height: 52px;
+    border-radius: 10px;
+    border: 2px solid #277C43;
+    color: #277C43;
+    background-color: white;
+    font-size: 20px;
+    font-family: "Mali", cursive;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 2px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 767px) {
+    .loginSection {
+        background-image: none;
+    }
+
+    .regisForm {
+        width: 95%;
+        height: auto;
+        margin: 20px 0px 20px 0px;
+    }
+
+    .submitRegisButton{
+        margin-bottom: 30px;
+        width: auto;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .loginSection {
+        background-image: none;
+    }
+
 }

@@ -11,10 +11,10 @@ export default function NavChat() {
             <div className='NavZone'>
                 <nav className="navbar" data-aos="fade-down">
                     <ul>
-                        <p className="logo logoChat" >HealJai Mini <CiHeart className='iconHeart' size={50} /></p>
+                        <p className="logo logoChat" >HealJai<CiHeart className='iconHeart' size={50} /></p>
                     </ul>
                     <ul className='rightSection'>
-                        <button className='endChat' onClick={() => setRole('')}> จบการสนทนา <IoMdExit size={23} color='#FFFFFF' /></button>
+                        <button className='endChat' onClick={() => setRole('')}> จบการสนทนา <IoMdExit size={23} color='#FFFFFF' className='exitIcon'/></button>
                     </ul>
 
                 </nav>

@@ -60,7 +60,7 @@ export default function Regis() {
                             <input type="password" className="inputField" value={confirmPassword} onChange={(e) => setconfirmPassword(e.target.value)} />
 
                         </div>
-                        <button className="submitButton" type="submit">ไปกันเลยยย</button>
+                        <button className="submitRegisButton" type="submit">ไปกันเลยยย</button>
                     </form>
                 </div>
             </div>

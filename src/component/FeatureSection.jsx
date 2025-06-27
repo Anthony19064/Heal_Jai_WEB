@@ -17,7 +17,7 @@ export default function FeatureSection() {
     }, []);
 
     const features = [
-        { image: chatImage, title: "ระบายใจ", info: " แชทแบบไม่ระบุตัวตนกับผู้ใช้อื่น<br/>หรือ Ai ประจำเว็บไซต์", button: "เริ่มแชท", text: "พูดสิ่งที่อยู่ในใจ<br/>หรือ<br/>รับฟังความในใจของคนอื่นดูไหม ?", class: 'chat', link: "/chat" },
+        { image: chatImage, title: "ระบายใจ", info: " แชทกับผู้ใช้อื่นหรือ Ai ประจำเว็บไซต์", button: "เริ่มแชท", text: "พูดสิ่งที่อยู่ในใจ<br/>หรือ<br/>รับฟังความในใจของคนอื่นดูไหม ?", class: 'chat', link: "/chat" },
         { image: commuImage, title: "คอมมูนิตี้", info: "แบ่งปันกำลังใจ และพูดคุยกับผู้ใช้อื่น", button: "เข้าสู่ชุมชน", text: "มารับกำลังใจจากคนอื่น<br/>หรือ<br/>ให้กำลังใจคนอื่นกันเถอะ :)", class: 'commu', link: "/commu" },
         { image: dairyImage, title: "ไดอารี่", info: "บันทึกเรื่องราวดีๆในชีวิตประจำวัน", button: "เขียนไดอารี่", text: "มาหาความสุขเล็กๆน้อยๆ<br/>รอบตัวกันเถอะ ❤️", class: 'dairy', link: "/diary" }
     ];
