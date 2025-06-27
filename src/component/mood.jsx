@@ -22,7 +22,7 @@ import 'aos/dist/aos.css';
 export default function Mood() {
     useEffect(() => {
         AOS.refresh();
-    }, []);
+    });
 
     const [rightInfo, setRighinfo] = useState('stat'); //เนื้อหาฝั่งขวา
     const [selectedIndex, setSelectedIndex] = useState(null); //index ของ MoodItem
