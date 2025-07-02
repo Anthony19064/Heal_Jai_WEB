@@ -23,18 +23,10 @@
     background-color: white;
 }
 
-.openButton:hover {
-    cursor: pointer;
-    transform: scale(1.1) rotate(20deg);
-    transition: transform 0.3s ease-in-out;
-}
-
 .imgIcon {
     width: 45px;
     height: 45px;
 }
-
-
 
 .popupButton {
     display: flex;
@@ -69,13 +61,6 @@
     transform: rotate(10deg);
 }
 
-.ButtonChange:hover {
-    cursor: pointer;
-    transform: translateY(-10px);
-
-    transition: transform 0.3s ease-in-out;
-}
-
 .redTheme {
     background: linear-gradient(to right, #FE6D6F, #FFA66E);
 }
@@ -92,26 +77,47 @@
     background: linear-gradient(to right, #76BC43, #BAD996);
 }
 
+@media (hover: hover) {
+    .ButtonChange:hover {
+        cursor: pointer;
+        transform: translateY(-10px);
+
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .openButton:hover {
+        cursor: pointer;
+        transform: scale(1.1) rotate(20deg);
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
 
 @media (max-width: 767px) {
     .ButtonSection {
         margin-bottom: 15px;
-        gap: 20px;
+        gap: 15px;
     }
 
     .openButton {
         margin-left: 10px;
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .imgIcon {
+        width: 35px;
+        height: 35px;
     }
 
     .popupButton {
-        gap: 25px;
+        gap: 15px;
     }
 
     .ButtonChange {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
+        border-width: 3px;
     }
 }
 

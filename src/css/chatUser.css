@@ -86,11 +86,6 @@
     background-color: var(--aiChat-color);
 }
 
-.roleCard:hover::before {
-    height: 100%;
-    transition: all 0.3s ease-in-out;
-}
-
 .userListenimg,
 .userTalkerimg {
     width: 200px;
@@ -177,38 +172,6 @@
     transition: all 0.3s ease-in-out, background-color 0.7s ease-in-out;
 }
 
-
-.roleCard:hover p,
-.roleCard:hover .userTalkertitle,
-.roleCard:hover .userListentitle {
-    color: white;
-}
-
-
-
-.roleCard:hover .userListenButton button {
-    background-color: white;
-    color: var(--aiChat-color);
-}
-
-.roleCard:hover .userTalkerButton button {
-    background-color: white;
-    color: var(--main-color);
-}
-
-.roleCard:hover {
-    transform: translateY(-10px) rotate(-2deg);
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-    border-color: white;
-}
-
-.userTalkerButton button:hover,
-.userListenButton button:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-
 .matchZone {
     display: flex;
     flex-direction: column;
@@ -239,11 +202,6 @@
     font-weight: 600;
     letter-spacing: 2px;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
-.matchZone button:hover {
-    transform: scale(1.1);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -357,10 +315,6 @@
     background-color: var(--secondleft-color);
     /* สีปุ่มเลื่อน */
     border-radius: 10px;
-}
-
-.messageZone::-webkit-scrollbar-thumb:hover {
-    background-color: var(--main-color);
 }
 
 .mt {
@@ -478,6 +432,50 @@
     text-align: left;
 }
 
+@media (hover: hover) {
+    .roleCard:hover::before {
+        height: 100%;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .roleCard:hover p,
+    .roleCard:hover .userTalkertitle,
+    .roleCard:hover .userListentitle {
+        color: white;
+    }
+
+    .roleCard:hover .userListenButton button {
+        background-color: white;
+        color: var(--aiChat-color);
+    }
+
+    .roleCard:hover .userTalkerButton button {
+        background-color: white;
+        color: var(--main-color);
+    }
+
+    .roleCard:hover {
+        transform: translateY(-10px) rotate(-2deg);
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+        border-color: white;
+    }
+
+    .userTalkerButton button:hover,
+    .userListenButton button:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .matchZone button:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .messageZone::-webkit-scrollbar-thumb:hover {
+        background-color: var(--main-color);
+    }
+}
+
 @media (max-width: 767px) {
     .roleSection {
         width: 95%;
@@ -545,7 +543,7 @@
         width: 90%;
     }
 
-    .InputButton:nth-child(2){
+    .InputButton:nth-child(2) {
         display: none;
     }
 

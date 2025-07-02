@@ -26,13 +26,15 @@ export default function MyPost({ ownerId }) {
                         </p>
                     </div>
 
-                    <div className="infoSection">
-                        {
-                            MypostObject.length > 0 && MypostObject.map((post, index) => (
+                    <div className="infoZone">
+                        <div className="infoSection">
+                            {
+                                MypostObject.length > 0 && MypostObject.map((post, index) => (
                                     <CardPost key={post._id} postObj={post} />
-                            ))
-                        }
+                                ))
+                            }
 
+                        </div>
                     </div>
                 </div>
             </div>

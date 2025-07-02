@@ -84,12 +84,6 @@
     background-color: var(--main-color);
 }
 
-.chatCard:hover::before {
-    height: 100%;
-    transition: all 0.3s ease-in-out;
-}
-
-
 .chatUserImg {
     width: 300px;
     height: 300px;
@@ -180,40 +174,46 @@
     transition: all 0.3s ease-in-out, background-color 0.7s ease-in-out;
 }
 
-.chatCard:hover {
-    border-color: white;
-    transform: translateY(-15px) rotate(3deg);
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s ease-in-out;
-}
-
-.chatCard:hover p {
-    color: white;
-    transition: all 0.3s ease-in-out;
-}
-
-.chatCard:hover .chatUserButton button,
-.chatCard:hover .chatAiButton button {
-    background-color: white;
-    transition: all 0.3s ease-in-out;
-}
-
-.chatUser:hover .chatUserButton button {
-    color: var(--aiChat-color);
-}
-
-.chatAi:hover .chatAiButton button {
-    color: var(--main-color);
-}
-
-.chatUserButton button:hover,
-.chatAiButton button:hover {
-    transform: scale(1.1);
-}
-
-
 .chatUserButton {
     z-index: 1;
+}
+
+@media (hover: hover) {
+    .chatCard:hover::before {
+        height: 100%;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .chatCard:hover {
+        border-color: white;
+        transform: translateY(-15px) rotate(3deg);
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .chatCard:hover p {
+        color: white;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .chatCard:hover .chatUserButton button,
+    .chatCard:hover .chatAiButton button {
+        background-color: white;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .chatUser:hover .chatUserButton button {
+        color: var(--aiChat-color);
+    }
+
+    .chatAi:hover .chatAiButton button {
+        color: var(--main-color);
+    }
+
+    .chatUserButton button:hover,
+    .chatAiButton button:hover {
+        transform: scale(1.1);
+    }
 }
 
 

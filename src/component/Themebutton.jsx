@@ -40,7 +40,7 @@ export default function Themebutton() {
         {ColorPopup && (
           <div className="popupButton" >
             {ButtonDetailObject.map((buttonObject) => (
-              <div className={`ButtonChange ${buttonObject.class}`} onClick={() => setTheme(buttonObject.value)} role="button"></div>
+              <div className={`ButtonChange ${buttonObject.class}`} onClick={() => setTheme(buttonObject.value)} role="button"  key={buttonObject.class}></div>
             ))}
           </div>
 
