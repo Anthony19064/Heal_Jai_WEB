@@ -245,3 +245,9 @@ ul {
         width: 95%;
     }
 }
+
+@media (min-width: 1200px) and (max-width: 1800px) {
+    .navbar{
+        width: 80%;
+    }
+}

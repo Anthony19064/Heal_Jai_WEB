@@ -125,6 +125,7 @@
 
 .statLeftDay {
     font-size: 80px;
+    line-height: 100%;
     margin: 0px;
     color: var(--secondtext-color);
     transition: color 0.7s ease-in-out;
@@ -144,7 +145,7 @@
 }
 
 .statRightText {
-    font-size: 25px;
+    font-size: 20px;
     margin: 0px;
     color: var(--secondtext-color);
     letter-spacing: 2px;
@@ -505,5 +506,19 @@
 
     .moodsubmit {
         margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1800px) {
+    .moodSection{
+        width: 80%;
+    }
+
+    .statLeftTitle, .statRightTitle{
+        font-size: 23px;
+    }
+
+    .statRightText, .statLeftText{
+        font-size: 18px;
     }
 }

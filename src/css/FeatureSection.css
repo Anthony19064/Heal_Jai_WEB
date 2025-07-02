@@ -334,3 +334,9 @@
         text-align: center;
     }
 }
+
+@media (min-width: 1200px) and (max-width: 1800px) {
+    .commuText p {
+        font-size: 30px;
+    }
+}

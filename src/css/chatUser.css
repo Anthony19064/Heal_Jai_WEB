@@ -603,3 +603,51 @@
     }
 
 }
+
+@media (min-width: 1200px) and (max-width: 1800px) {
+    .roleSection{
+        width: 80%;
+        margin-bottom: 100px;
+    }
+
+    .matchedSection{
+        width: 80%;
+    }
+
+    .matchingImg{
+        width: 400px;
+        height: 400px;
+    }
+
+    .matchZone p{
+        font-size: 30px;
+    }
+
+    .matchZone button{
+        margin-bottom: 100px;
+    }
+
+    .leftAnimation{
+        width: 600px;
+        height: 600px;
+    }
+    
+    .rightCardChat{
+        width: 450px;
+        height: 500px;
+    }
+
+    .matchedLeftSection p{
+        font-size: 22px;
+    }
+
+    .matchedRightSection{
+        margin-bottom: 50px;
+    }
+
+    .rightRole{
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+}

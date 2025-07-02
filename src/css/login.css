@@ -8,7 +8,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 
@@ -205,7 +204,7 @@ form {
         color: #277C43;
     }
 
-    .submitLoginButton:hover {
+    .submitLoginButton:hover, .submitRegisButton:hover {
         cursor: pointer;
         border: 2px solid #ffffff;
         color: #ffffff;
@@ -279,4 +278,10 @@ form {
         background-image: none;
     }
 
+}
+
+@media (min-width: 1200px) and (max-width: 1800px) {
+    .loginSection{
+        height: 110vh;
+    }
 }

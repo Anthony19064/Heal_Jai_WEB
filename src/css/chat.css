@@ -274,3 +274,10 @@
         height: 260px;
     }
 }
+
+@media (min-width: 1200px) and (max-width: 1800px) {
+    .chatSection{
+        width: 80%;
+        margin-bottom: 100px;
+    }
+}

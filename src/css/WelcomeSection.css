@@ -175,3 +175,13 @@
         justify-content: center;
     }
 }
+
+@media (min-width: 1200px) and (max-width: 1800px) {
+    .section{
+        width: 80%;
+    }
+    
+    .textcontent{
+        font-size: 30px;
+    }
+}
