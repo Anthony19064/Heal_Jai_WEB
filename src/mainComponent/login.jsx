@@ -1,9 +1,11 @@
 import "../css/login.css";
 import google from "../assets/icons/google.svg";
+import loadingAnimation from '../assets/icons/Animation - 1749605201280.json';
 
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Lottie from "lottie-react";
 
 
 import { useNavigate } from 'react-router-dom';
@@ -27,15 +29,19 @@ export default function Login() {
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
     const [remember, setRemember] = useState(false);
+    const [loginLoading, setLoginLoading] = useState(null);
 
     const SubmitLogin = async (e) => {
         e.preventDefault();
 
         try {
+            setLoginLoading(true);
             await maliLogin(mail, password, remember);
+            setLoginLoading(null);
             navigate(`/`);
         } catch (error) {
             toast.error(error.message);
+            setLoginLoading(null);
         }
     }
 
@@ -69,7 +75,7 @@ export default function Login() {
                                 <a href="" className="forgot">ลืมรหัสผ่าน ?</a>
                             </div>
                         </div>
-                        <button className="submitLoginButton" type="submit">ไปกันเลยยย</button>
+                        <button className="submitLoginButton" type="submit">{loginLoading ? <Lottie animationData={loadingAnimation} loop={true} autoplay={true} className='loginLoad' /> : "ไปกันเลยย"}</button>
                     </form>
 
                     <div className="lineSection">
