@@ -77,18 +77,29 @@ export default function CardPost({ postObj }) {
             return;
         }
 
-        await addComment(postObj._id, userId, commentInfo); //เพิ่มคอมเม้น
-        setcommentInfo(''); // reset input
-        getComment(postObj._id, setcommenObj); //ดึงข้อมูลคอมเม้น
-        getCountComment(postObj._id, setCountComment); //ดึงจำนวนคอมเม้น
+        if (userId) {
+            await addComment(postObj._id, userId, commentInfo); //เพิ่มคอมเม้น
+            setcommentInfo(''); // reset input
+            getComment(postObj._id, setcommenObj); //ดึงข้อมูลคอมเม้น
+            getCountComment(postObj._id, setCountComment); //ดึงจำนวนคอมเม้น
+        }
+        else{
+            toast.error('ต้องเข้าสู่ระบบก่อนนะครับ :)');
+            setcommentInfo(''); // reset input
+        }
     }
 
     const Likebutton = async () => {
-        setLikeLoaded(true);
-        await addLike(postObj._id, userId);
-        await getCountLike(postObj._id, setCountLike);
-        await getLike(postObj._id, userId).then(data => setStateLike(data));
-        setLikeLoaded(null);
+        if (userId) {
+            setLikeLoaded(true);
+            await addLike(postObj._id, userId);
+            await getCountLike(postObj._id, setCountLike);
+            await getLike(postObj._id, userId).then(data => setStateLike(data));
+            setLikeLoaded(null);
+        }
+        else {
+            toast.error('ต้องเข้าสู่ระบบก่อนนะครับ :)');
+        }
     }
 
 

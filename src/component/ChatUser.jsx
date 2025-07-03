@@ -1,14 +1,16 @@
 import { useEffect, useState, useRef, createContext, useContext } from 'react';
+import { getIdAccount } from '../api/Account';
 import Lottie from "lottie-react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import io from 'socket.io-client';
+import { toast } from 'react-toastify';
 
 import { ThemeProvider } from '../component/ThemeContext.jsx';
 import Navbar from '../component/Navbar.jsx';
 import NavChat from '../component/NavChat.jsx';
-import Themebutton from '../component/Themebutton.jsx';
+
 
 import listen from '../assets/images/listen.png';
 import listenerProfile from '../assets/images/listenerProfile.jpg';
@@ -28,6 +30,8 @@ const API = import.meta.env.VITE_API_URL;
 const RoleContext = createContext();
 
 export default function ChatUser() {
+    const [userId, setUserId] = useState(null);
+
     useEffect(() => {
         AOS.init({
             duration: 700,
@@ -35,6 +39,8 @@ export default function ChatUser() {
         });
 
         window.scrollTo(0, 0);
+
+        getIdAccount().then(setUserId);
     }, []);
 
     const [systemState, setSystemState] = useState('');
@@ -138,6 +144,16 @@ export default function ChatUser() {
         }
     }, [chat]);
 
+    const matchedButton = (role) => {
+        if (userId) {
+            setSystemState('matching');
+            setRole(role);
+        }
+        else{
+            toast.error('ต้องเข้าสู่ระบบก่อนนะครับ :)');
+        }
+    }
+
 
     return (
         <>
@@ -162,7 +178,7 @@ export default function ChatUser() {
                                                 </div>
                                                 <p className={`roleinfo`} dangerouslySetInnerHTML={{ __html: data.info }}></p>
                                                 <Link to={''} style={{ textDecoration: 'none' }} className={`${data.class}Button`}>
-                                                    <button onClick={() => { setSystemState('matching'), setRole(data.role) }}>เริ่มจับคู่</button>
+                                                    <button onClick={() => matchedButton(data.role)}>เริ่มจับคู่</button>
                                                 </Link>
 
                                             </div>

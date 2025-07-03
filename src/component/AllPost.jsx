@@ -41,6 +41,12 @@ export default function AllPost() {
 
     //OwnerPostId, infoPost
     const CreatePost = async () => {
+        if(!owenrId){
+            toast.error('ต้องเข้าสู่ระบบก่อนนะครับ :)');
+            setinfoPost('');
+            setImgPost(null);
+            return;
+        }
         if (!infoPost || !infoPost.trim()) return toast.error('ใส่ข้อความที่ต้องการด้วยค้าบ');
         if (imgPost) {
             setCreateLoading(true);
