@@ -3,31 +3,10 @@ import { storage } from '../firebase.js';
 
 const API = import.meta.env.VITE_API_URL;
 
-//---------------------------------------------------------------
-//ตัวอย่างเรียก API จาก Link ที่ Deploy แล้ว
-// const API = import.meta.env.VITE_API_URL;
-
-// export const getAllPost = async (setpostObject) => {
-//     try {
-//         const res = await fetch(`${API}/api/getAllpost`);
-//         const data = await res.json();
-//         if (data) {
-//             setpostObject(data) ;
-//         }
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-//---------------------------------------------------------------
-
 //ดึงโพสของตัวเอง
 export const getMypost = async (ownerId) => {
     try {
-        const res = await fetch(`${API}/api/getMypost`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ownerId }), //ส่งไอดีตัวเอง
-        });
+        const res = await fetch(`${API}/api/getMypost/${ownerId}`);
 
         const data = await res.json();
         if (data && data.success) {
@@ -42,7 +21,7 @@ export const getMypost = async (ownerId) => {
 export const getAllPost = async (page, limit) => {
     try {
         const skip = page * limit;
-        const res = await fetch(`${API}/api/getAllpost?skip=${skip}&limit=${limit}`);
+        const res = await fetch(`${API}/api/posts?skip=${skip}&limit=${limit}`);
         const data = await res.json();
         if (data && data.success) {
             return data.data
@@ -54,11 +33,7 @@ export const getAllPost = async (page, limit) => {
 
 //ดึงจำนวนคนที่กดถูกใจ
 export const getCountLike = async (postID, setCountLike) => {
-    const res = await fetch(`${API}/api/countLike`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ postID }),
-    });
+    const res = await fetch(`${API}/api/countLike/${postID}`);
 
     const data = await res.json();
     if (data && data.success) {
@@ -93,11 +68,7 @@ export const getLike = async (postID, userID) => {
 
 //ดึงจำนวนคนที่คอมเมนต์
 export const getCountComment = async (postID, setCountComment) => {
-    const res = await fetch(`${API}/api/countComment`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ postID }),
-    });
+    const res = await fetch(`${API}/api/countComment/${postID}`);
 
     const data = await res.json();
     if (data && data.success) {
@@ -109,11 +80,7 @@ export const getCountComment = async (postID, setCountComment) => {
 
 //ดึงข้อมูลคอมเมนต์
 export const getComment = async (postID, setcommenObj) => {
-    const resComment = await fetch(`${API}/api/getComment`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ postID }),
-    });
+    const resComment = await fetch(`${API}/api/getComment/${postID}`);
 
     const data = await resComment.json();
     if (data && data.success) {
@@ -121,11 +88,8 @@ export const getComment = async (postID, setcommenObj) => {
         // Promise.all รันพร้อมกัน
         const commentWithAccount = await Promise.all(
             commentObj.map(async (item) => {
-                const res = await fetch(`${API}/api/getAccount`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ postowner: item.ownerComment }),
-                });
+                const postowner = item.ownerComment;
+                const res = await fetch(`${API}/api/getAccount/${postowner}`);
                 const account = await res.json();
                 const data = account.data;
                 return {

@@ -107,11 +107,7 @@ export const prevMonth = (thisMonth, thisYear, setThismonth, setTthisYear) => {
 
 //ดึงข้อมูลอารมณ์ของเมื่อวาน
 export const getLatestMood = async (userId, setLatestMood) => {
-    const res = await fetch(`${API}/api/getLatestMood`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId })
-    });
+    const res = await fetch(`${API}/api/getLatestMood/${userId}`);
 
     const value = await res.json();
     if (res.ok && value.success) {
@@ -124,11 +120,7 @@ export const getLatestMood = async (userId, setLatestMood) => {
 
 //ดึงข้อมูลเวลาต่อเนื่องการบันทึกอารมณ์
 export const getDayStack = async (userId, setDayStack) => {
-    const res = await fetch(`${API}/api/getDayStack`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId })
-    });
+    const res = await fetch(`${API}/api/getDayStack/${userId}`);
 
     const value = await res.json();
     if(res.ok && value.success){
