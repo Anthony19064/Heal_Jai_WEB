@@ -2,6 +2,7 @@ import 'aos/dist/aos.css';
 import cardimg from '../assets/images/cardimg.png';
 import '../css/WelcomeSection.css';
 import '../css/theme.css';
+import Skeleton from 'react-loading-skeleton';
 
 export default function WelcomeSection (){
 
@@ -18,7 +19,7 @@ export default function WelcomeSection (){
                         </div>
                         <div className='rightcontent' data-aos="fade-left">
                             <div className="card">
-                                <img className='cardimg' src={cardimg}/>
+                                <img className='cardimg' src={cardimg || <Skeleton />}/>
                                 <p className='cardtext'> สวัสดีครับวันนี้เหนื่อยไหม ?<br />ถ้าเหนื่อยก็มานั่งพักที่นี่ก่อนได้นะ<br />ผมตั้งใจสร้างที่นี่ไว้ให้ทุกคนเลยนะ :)</p>
                             </div>
                         </div>

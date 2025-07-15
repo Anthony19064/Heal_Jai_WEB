@@ -46,6 +46,7 @@
     align-items: center;
     border-radius: 50%;
     border: 3px solid transparent;
+    transition: background-color 0.5s ease-in-out;
 }
 
 .notday {
@@ -94,56 +95,56 @@
 .sadDay {
     border: 3px solid white;
     background-color: #7BD3EA;
-    transition: none;
+    transition: background-color 0.5s ease-in-out;
 }
 
 .sadDay p {
     color: white;
-    transition: none;
+    transition: color 0.5s ease-in-out;
 }
 
 .happyDay {
     background-color: #F5C968;
     border: 3px solid white;
-    transition: none;
+    transition: background-color 0.5s ease-in-out;
 }
 
 .happyDay p {
     color: white;
-    transition: none;
+    transition: color 0.5s ease-in-out;
 }
 
 .normalDay {
     background-color: #967AF9;
     border: 3px solid white;
-    transition: none;
+    transition: background-color 0.5s ease-in-out;
 }
 
 .normalDay p {
     color: white;
-    transition: none;
+    transition: color 0.5s ease-in-out;
 }
 
 .angryDay {
     background-color: #F46C6C;
     border: 3px solid white;
-    transition: none;
+    transition: background-color 0.5s ease-in-out;
 }
 
 .angryDay p {
     color: white;
-    transition: none;
+    transition: color 0.5s ease-in-out;
 }
 
 .funnyDay {
     background-color: #B0DB9C;
     border: 3px solid white;
-    transition: none;
+    transition: background-color 0.5s ease-in-out;
 }
 
 .funnyDay p {
     color: white;
-    transition: none;
+    transition: color 0.5s ease-in-out;
 }
 
 @media (hover: hover) {

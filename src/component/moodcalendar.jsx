@@ -30,10 +30,6 @@ export default function MoodCalendar({ onChangePage, userId, refreshState }) {
     }, [thisMonth, thisYear, userId, refreshState])
 
 
-
-
-
-
     return (
         <>
             <div className="innerInfo">

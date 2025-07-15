@@ -523,8 +523,12 @@
         justify-content: space-around;
     }
 
+    .rightTitle {
+        padding: 10px 15px 10px 15px;
+    }
+    
     .rightTitle p {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .rightCardChat {

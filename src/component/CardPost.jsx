@@ -5,8 +5,10 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaRegCommentDots } from "react-icons/fa6";
 import { BsArrowRepeat } from "react-icons/bs";
+import likeLoadanimation from '../assets/icons/Animation-likeLoad.json';
 
 import { Link } from 'react-router-dom';
+import Lottie from "lottie-react";
 import { getCountComment, getComment, addComment, getCountLike, addLike, getLike } from '../api/Post';
 import { getAccount, getIdAccount } from '../api/Account';
 import '../css/CardPost.css';
@@ -24,6 +26,7 @@ dayjs.extend(relativeTime);
 
 export default function CardPost({ postObj }) {
     const [imgLoaded, setImgLoaded] = useState(false);
+    const [likeLoaded, setLikeLoaded] = useState(null);
 
     const [commentState, setCommentState] = useState(false);
     const [commenObj, setcommenObj] = useState([]);
@@ -63,7 +66,7 @@ export default function CardPost({ postObj }) {
     const OpenComment = async () => {
         setCommentState(prev => !prev);
         if (!commentState) {
-            await getComment(postObj._id, setcommenObj); 
+            await getComment(postObj._id, setcommenObj);
         }
     }
 
@@ -74,22 +77,35 @@ export default function CardPost({ postObj }) {
             return;
         }
 
-        await addComment(postObj._id, userId, commentInfo); //เพิ่มคอมเม้น
-        setcommentInfo(''); // reset input
-        getComment(postObj._id, setcommenObj); //ดึงข้อมูลคอมเม้น
-        getCountComment(postObj._id, setCountComment); //ดึงจำนวนคอมเม้น
+        if (userId) {
+            await addComment(postObj._id, userId, commentInfo); //เพิ่มคอมเม้น
+            setcommentInfo(''); // reset input
+            getComment(postObj._id, setcommenObj); //ดึงข้อมูลคอมเม้น
+            getCountComment(postObj._id, setCountComment); //ดึงจำนวนคอมเม้น
+        }
+        else{
+            toast.error('ต้องเข้าสู่ระบบก่อนนะครับ :)');
+            setcommentInfo(''); // reset input
+        }
     }
 
     const Likebutton = async () => {
-        await addLike(postObj._id, userId);
-        getCountLike(postObj._id, setCountLike);
-        getLike(postObj._id, userId).then(data => setStateLike(data));
+        if (userId) {
+            setLikeLoaded(true);
+            await addLike(postObj._id, userId);
+            await getCountLike(postObj._id, setCountLike);
+            await getLike(postObj._id, userId).then(data => setStateLike(data));
+            setLikeLoaded(null);
+        }
+        else {
+            toast.error('ต้องเข้าสู่ระบบก่อนนะครับ :)');
+        }
     }
 
 
     const ButtonPost = [
         {
-            icon: stateLike ? <FaHeart color="#FD7D7E" data-aos='zoom-out' data-aos-duration="500" /> : <FaRegHeart color="#FD7D7E" data-aos='zoom-in' data-aos-duration="500" />,
+            icon: likeLoaded ? <Lottie animationData={likeLoadanimation} loop={true} autoplay={true} className='likeLoaded' /> : stateLike ? <FaHeart color="#FD7D7E" data-aos='zoom-out' data-aos-duration="500" /> : <FaRegHeart color="#FD7D7E" data-aos='zoom-in' data-aos-duration="500" />,
             text: countLike,
             color: 'likebutton',
             functionButton: () => Likebutton()
@@ -102,7 +118,7 @@ export default function CardPost({ postObj }) {
         },
         {
             icon: <BsArrowRepeat color="#7F71FF" />,
-            text: '5',
+            text: '0',
             color: 'repostbutton'
         },
     ]
@@ -113,9 +129,9 @@ export default function CardPost({ postObj }) {
                 <div className="headCard">
                     <Link to={`/profile/${Account?.username ? Account.username : ''}`} style={{ textDecoration: 'none' }}>
                         <div className="OwnerPost">
-                            <img className="OwnerImg" src={Account?.photoURL ? Account.photoURL : null} />
+                            <img className="OwnerImg" src={Account?.photoURL ? Account.photoURL : './profile.png'} />
                             <div>
-                                <p className="OwnerName">{Account?.username ? Account.username : ''}</p>
+                                <p className="OwnerName">{Account?.username ? Account.username : <Skeleton />}</p>
                                 <p className='timePost'>{dayjs(postObj.createdAt).fromNow()}</p>
                             </div>
                         </div>
@@ -126,7 +142,7 @@ export default function CardPost({ postObj }) {
                 </div>
 
                 <div className="contentCard">
-                    <p className="ownerContent"> {postObj.infoPost} </p>
+                    <p className="ownerContent"> {postObj.infoPost || <Skeleton />} </p>
 
                     {postObj.img && (
                         <>
@@ -143,9 +159,9 @@ export default function CardPost({ postObj }) {
 
                 <div className="bottomCard">
                     {ButtonPost.map((item, index) => (
-                        <button className={`ButtonPost ${item.color}`} key={index} onClick={item.functionButton}>
+                        <button className={`ButtonPost ${item.color}`} key={index} onClick={item.functionButton} disabled={likeLoaded && index === 0 ? true : false}>
                             {item.icon}
-                            <p> {item.text}</p>
+                            {likeLoaded && index === 0 ? null : <p> {item.text}</p>}
                         </button>
                     ))
                     }

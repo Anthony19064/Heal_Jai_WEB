@@ -110,20 +110,30 @@ form {
 }
 
 .submitLoginButton {
+    cursor: pointer;
     margin-top: 20px;
     width: 203px;
     height: 52px;
     border-radius: 10px;
-    border: 2px solid #277C43;
-    color: #277C43;
-    background-color: white;
+    border: none;
+    color: white;
+    background-color: #277C43;
     font-size: 20px;
     font-family: "Mali", cursive;
     font-weight: 700;
     font-style: normal;
     letter-spacing: 2px;
     transition: transform 0.3s ease-in-out;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.loginLoad {
+    width: 50px;
+    height: 50px;
+    transform: scale(1.5);
 }
 
 .lineSection {
@@ -160,6 +170,7 @@ form {
 }
 
 .googleLogin {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,7 +180,6 @@ form {
     border-radius: 10px;
     width: 370px;
     height: 52px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -177,6 +187,7 @@ form {
     margin: 0px;
     font-size: 20px;
     letter-spacing: 2px;
+    cursor: pointer;
 }
 
 .googleIcon {
@@ -204,18 +215,13 @@ form {
         color: #277C43;
     }
 
-    .submitLoginButton:hover, .submitRegisButton:hover {
-        cursor: pointer;
-        border: 2px solid #ffffff;
-        color: #ffffff;
-        background-color: #277C43;
+    .submitLoginButton:hover,
+    .submitRegisButton:hover {
         transform: scale(1.1);
         transition: transform 0.3s ease-in-out;
     }
 
     .googleLogin:hover {
-        cursor: pointer;
-        box-shadow: none;
         transform: scale(1.1);
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
@@ -281,7 +287,7 @@ form {
 }
 
 @media (min-width: 1200px) and (max-width: 1800px) {
-    .loginSection{
+    .loginSection {
         height: 110vh;
     }
 }

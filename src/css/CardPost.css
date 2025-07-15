@@ -244,6 +244,13 @@
 }
 
 
+.likeLoaded{
+    width: 50px;
+    height: 50px;
+    transform: scale(1.7);
+    overflow: hidden;
+}
+
 
 @media (hover: hover) {
     .moreIcon:hover {

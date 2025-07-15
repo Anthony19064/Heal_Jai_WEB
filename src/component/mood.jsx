@@ -7,6 +7,7 @@ import sad from '../assets/icons/Animation-sadMood.json'
 import happy from '../assets/icons/Animation-happyMood.json'
 import normal from '../assets/icons/Animation-normalMood.json'
 import angry from '../assets/icons/Animation-angryMood.json'
+import moodLoad from '../assets/icons/Animation-moodLoad.json'
 
 import MoodStat from './moodstat';
 import MoodCalendar from './moodcalendar';
@@ -18,6 +19,7 @@ import { getIdAccount } from '../api/Account';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { p } from 'framer-motion/client';
 
 export default function Mood() {
     useEffect(() => {
@@ -29,6 +31,7 @@ export default function Mood() {
     const [moodValue, setmoodValue] = useState(''); // Mood ที่ User เลือก
     const [userText, setUserText] = useState(''); // Text ทื่ User พิมพ์
     const [refresh, setrefresh] = useState(false);
+    const [moodLoaded, setMoodLoaded] = useState(null);
 
 
     const [userId, setUserId] = useState(null);
@@ -86,6 +89,7 @@ export default function Mood() {
         e.preventDefault();
 
         if (userId) {
+            setMoodLoaded(true);
             const data = await addMood(userId, userText, moodValue);
             if (data.success) {
                 await updateDayStack(userId)
@@ -99,6 +103,7 @@ export default function Mood() {
                 setUserText('');
                 toast.error(data.message);
             }
+            setMoodLoaded(null);
         }
         else {
             setSelectedIndex(null);
@@ -131,7 +136,7 @@ export default function Mood() {
                                 ))}
                             </div>
                             <textarea name="moodnote" id="moodnote" className="moodnote" placeholder='ทำไมถึงรู้สึกแบบนี้หรอ บอกเราได้นะ' value={userText} onChange={(e) => setUserText(e.target.value)}></textarea>
-                            <button className="moodsubmit" type='submit'><p>บันทึก</p></button>
+                            <button className="moodsubmit" type='submit' disabled={moodLoaded? true : false} >{moodLoaded ? <Lottie animationData={moodLoad} loop={true} autoplay={true} className='moodLoaded'/> : <p>บันทึก</p>}</button>
                         </form>
                         {rightInfo === 'stat' && <MoodStat onChangePage={() => setRighinfo('calendar')} userId={userId} refreshState={refresh} />}
                         {rightInfo === 'calendar' && <MoodCalendar onChangePage={() => setRighinfo('stat')} userId={userId} refreshState={refresh} />}
