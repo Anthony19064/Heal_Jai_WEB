@@ -194,7 +194,11 @@ export default function ChatUser() {
                         <div className='matchZone' data-aos='fade-up'>
                             <Lottie animationData={matching} loop={true} autoplay={true} className='matchingImg' />
                             <p >กำลังหา{role === 'talker' ? 'ผู้รับฟัง' : 'ผู้ระบาย'}ให้อยู่น้าา รอหน่อยนะค้าบบ :)</p>
-                            <button onClick={() => { setSystemState(''), setRole(null) }} > ยกเลิกการจับคู่ </button>
+                            <button onClick={() => { 
+                                setSystemState(''),
+                                setRole(null),
+                                socketRef.current.emit('endChat');
+                                 }} > ยกเลิกการจับคู่ </button>
                         </div>
 
                     }
