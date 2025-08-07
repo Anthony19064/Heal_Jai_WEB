@@ -91,7 +91,7 @@ export default function ChatUser() {
             socketRef.current.emit('register', role);
 
             //รอฟัง event matched
-            socketRef.current.on('matched', ({ roomId }) => {
+            socketRef.current.on('matched', (roomId) => {
                 setRoomId(roomId);
                 setSystemState('matched');
             });
