@@ -6,9 +6,17 @@ import { useRole } from './ChatUser';
 
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'; // ต้อง import css
+import { useEffect, useState, useRef, createContext, useContext } from 'react';
+import socket from '../socket.js';
 
 export default function NavChat() {
     const { setRole } = useRole();
+    const socketRef = useRef(null);
+
+    useEffect(() => {
+        socketRef.current = socket;
+     }, [])
+
 
     const handleExit = () => {
         confirmAlert({
@@ -17,7 +25,10 @@ export default function NavChat() {
             buttons: [
                 {
                     label: 'ใช่',
-                    onClick: () => setRole('')
+                    onClick: () => {
+                        socketRef.current.emit('endChat');
+                        setRole('');
+                    }
                 },
                 {
                     label: 'ไม่',

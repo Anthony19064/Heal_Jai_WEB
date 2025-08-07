@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
-import io from 'socket.io-client';
+import socket from '../socket.js';
 import { toast } from 'react-toastify';
 
 import { ThemeProvider } from '../component/ThemeContext.jsx';
@@ -85,13 +85,13 @@ export default function ChatUser() {
     useEffect(() => {
         if (role) {
             //สร้าง Socket
-            socketRef.current = io(API);
+            socketRef.current = socket;
 
             //ส่ง event ลงทะเบียนเข้า queue
             socketRef.current.emit('register', role);
 
             //รอฟัง event matched
-            socketRef.current.on('matched', (roomId) => {
+            socketRef.current.on('matched', (roomId ) => {
                 setRoomId(roomId);
                 setSystemState('matched');
             });
@@ -194,11 +194,7 @@ export default function ChatUser() {
                         <div className='matchZone' data-aos='fade-up'>
                             <Lottie animationData={matching} loop={true} autoplay={true} className='matchingImg' />
                             <p >กำลังหา{role === 'talker' ? 'ผู้รับฟัง' : 'ผู้ระบาย'}ให้อยู่น้าา รอหน่อยนะค้าบบ :)</p>
-                            <button onClick={() => { 
-                                setSystemState(''),
-                                setRole(null),
-                                socketRef.current.emit('endChat');
-                                 }} > ยกเลิกการจับคู่ </button>
+                            <button onClick={() => { setSystemState(''), setRole(null) }} > ยกเลิกการจับคู่ </button>
                         </div>
 
                     }
@@ -258,5 +254,6 @@ export default function ChatUser() {
 function useRole() {
     return useContext(RoleContext);
 }
+
 
 export { useRole };
